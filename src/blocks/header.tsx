@@ -3,10 +3,17 @@ import { SiteHeader } from '@/components/site-header';
 
 export function Header() {
   const navLinks = [
-    { href: '/#features', label: m['landing.nav.features']() },
-    { href: '/pricing', label: m['landing.nav.pricing']() },
-    { href: '/blog', label: m['landing.nav.blog']() },
+    { href: '/download', label: m['pc.nav.download']() },
+    { href: '/online', label: m['pc.nav.online']() },
+    { href: '/tutorials', label: m['pc.nav.tutorials']() },
+    { href: '/pdfcraft-vs-adobe-acrobat', label: m['pc.nav.compare']() },
   ];
 
-  return <SiteHeader navLinks={navLinks} logoAlt={m['hotel.logo_alt']()} />;
+  return (
+    <SiteHeader
+      navLinks={navLinks}
+      logoAlt={m['pc.logo_alt']()}
+      cta={{ href: '/download', label: m['pc.nav.cta']() }}
+    />
+  );
 }

@@ -1,3 +1,9 @@
+import {
+  PDFCRAFT_DISCORD,
+  PDFCRAFT_OFFICIAL,
+  PDFCRAFT_RELEASES,
+  PDFCRAFT_REPO,
+} from '@/config/pdfcraft';
 import { m } from '@/paraglide/messages.js';
 import { FooterBadgeList } from '@/components/footer-badge-list';
 import { SiteFooter, type FooterColumn } from '@/components/site-footer';
@@ -5,19 +11,21 @@ import { SiteFooter, type FooterColumn } from '@/components/site-footer';
 export function Footer() {
   const columns: FooterColumn[] = [
     {
-      title: m['landing.footer.feature'](),
+      title: m['pc.footer.product'](),
       links: [
-        { label: m['hotel.nav.create'](), href: '/#create' },
-        { label: m['hotel.nav.how'](), href: '/#how' },
+        { label: m['pc.nav.download'](), href: '/download' },
+        { label: m['pc.nav.online'](), href: '/online' },
+        { label: m['pc.nav.tutorials'](), href: '/tutorials' },
+        { label: m['pc.nav.compare'](), href: '/pdfcraft-vs-adobe-acrobat' },
       ],
     },
     {
-      title: m['landing.footer.resources'](),
+      title: m['pc.footer.resources'](),
       links: [
-        {
-          label: 'support@hotel-lobby.org',
-          href: 'mailto:support@hotel-lobby.org',
-        },
+        { label: m['pc.footer.official'](), href: PDFCRAFT_OFFICIAL },
+        { label: m['pc.footer.github'](), href: PDFCRAFT_REPO },
+        { label: m['pc.footer.releases'](), href: PDFCRAFT_RELEASES },
+        { label: m['pc.footer.discord'](), href: PDFCRAFT_DISCORD },
       ],
     },
     {
@@ -25,16 +33,22 @@ export function Footer() {
       links: [
         { label: m['landing.footer.privacy'](), href: '/privacy-policy' },
         { label: m['landing.footer.terms'](), href: '/terms-of-service' },
-        { label: m['landing.footer.aup'](), href: '/acceptable-use-policy' },
       ],
     },
   ];
 
   return (
-    <SiteFooter
-      tagline={m['hotel.footer.line']()}
-      columns={columns}
-      badges={<FooterBadgeList className="mt-10" />}
-    />
+    <>
+      <SiteFooter
+        tagline={m['pc.footer.tagline']()}
+        columns={columns}
+        badges={<FooterBadgeList className="mt-10" />}
+      />
+      <div className="bg-background border-border border-t">
+        <p className="text-muted-foreground mx-auto max-w-7xl px-6 py-5 text-xs leading-relaxed sm:px-10 lg:px-16">
+          {m['pc.footer.disclaimer']()}
+        </p>
+      </div>
+    </>
   );
 }

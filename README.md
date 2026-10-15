@@ -101,15 +101,25 @@ All admin pages include:
 
 ## Cloudflare deployment
 
-The `hotel-lobby-ai` Worker builds and deploys automatically when `main` is
-pushed. Cloudflare Workers Builds runs `pnpm cf:ci:build`, then
-`pnpm exec wrangler deploy`.
+The production configuration targets the independent `pdfcrafttool` Worker
+and the `pdfcrafttool` D1 database. Cloudflare Workers Builds can run
+`pnpm cf:ci:build`, then `pnpm exec wrangler deploy` once this repository is
+connected to that Worker.
 
 [`wrangler.production.json`](./wrangler.production.json) is the tracked source
 for the Worker name, D1 binding, domain, and public app settings. The CI build
 recreates the ignored `wrangler.jsonc` and `.env.production` files from it.
 Keep credentials in Cloudflare runtime secrets; never add them to this file.
 Database migrations still require a separate review and apply step.
+
+For local development against the same remote D1, set `DATABASE_PROVIDER=d1`,
+`D1_REMOTE_HTTP=true`, `CLOUDFLARE_ACCOUNT_ID`, and `D1_DATABASE_ID` in
+`.env.development`. The app uses the logged-in Wrangler session, or a
+server-only `CLOUDFLARE_API_TOKEN`. Local app writes then update remote D1
+directly; `data/local.db` is not used by the app in this mode. Apply D1
+migrations with `pnpm exec wrangler d1 migrations apply pdfcrafttool --remote
+--config wrangler.jsonc`; the generic Drizzle scripts currently target the
+local SQLite file and should not be used to migrate D1.
 
 ## Claude Code Skills
 

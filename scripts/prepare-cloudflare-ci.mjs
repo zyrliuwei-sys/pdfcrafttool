@@ -6,9 +6,10 @@ const config = JSON.parse(readFileSync('wrangler.production.json', 'utf8'));
 const vars = config.vars;
 
 if (
-  config.name !== 'hotel-lobby-ai' ||
+  config.name !== 'pdfcrafttool' ||
   vars?.DATABASE_PROVIDER !== 'd1' ||
   !/^https:\/\//.test(vars.VITE_APP_URL) ||
+  config.d1_databases?.[0]?.database_name !== 'pdfcrafttool' ||
   !/^[0-9a-f-]{36}$/.test(config.d1_databases?.[0]?.database_id ?? '')
 ) {
   throw new Error('Invalid production Worker config');

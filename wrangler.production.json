@@ -1,24 +1,28 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "hotel-lobby-ai",
+  "name": "pdfcrafttool",
   "compatibility_flags": ["nodejs_compat"],
-  "observability": { "enabled": true },
+  "observability": {
+    "enabled": true
+  },
   "vars": {
     "DATABASE_PROVIDER": "d1",
-    "VITE_APP_URL": "https://hotel-lobby.org",
-    "VITE_APP_NAME": "Hotel Lobby AI",
-    "VITE_APP_DESCRIPTION": "Plan a two-person Hotel Lobby AI filter video and copy a prompt for an image-to-video studio.",
+    "VITE_APP_URL": "https://pdfcrafttool.org",
+    "VITE_APP_NAME": "PDFCraftTool",
     "VITE_APP_LOGO": "/logo.svg",
+    "VITE_APP_DESCRIPTION": "PdfCraft guide: free open-source PDF reader & editor — download, use online, tutorials and Acrobat comparison.",
+    "VITE_PDFCRAFT_WEB_URL": "https://app.pdfcrafttool.org/index.html",
     "VITE_DEFAULT_LOCALE": "en"
   },
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "hotel-lobby-db",
-      "database_id": "9c9d279e-2929-4b38-9d0f-0259fb6a96dd",
+      "database_name": "pdfcrafttool",
+      "database_id": "e0f69c67-a969-4338-8573-e6877788c723",
       "migrations_dir": "drizzle"
     }
   ],
-  "triggers": { "crons": ["* * * * *"] },
-  "routes": [{ "pattern": "hotel-lobby.org", "custom_domain": true }]
+  "triggers": {
+    "crons": ["* * * * *"]
+  }
 }

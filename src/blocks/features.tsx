@@ -1,55 +1,97 @@
 import {
-  Coins,
-  CreditCard,
-  FileText,
-  Globe,
-  ShieldCheck,
-  Users,
+  Combine,
+  Languages,
+  LayoutGrid,
+  Lock,
+  Save,
+  Search,
   type LucideIcon,
 } from 'lucide-react';
 
-import { tDynamic } from '@/core/i18n/dynamic';
+import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
+import { Reveal } from '@/components/reveal';
+import { SectionHeading } from '@/components/section-heading';
 
 export function Features() {
-  const features: { key: string; icon: LucideIcon }[] = [
-    { key: 'auth', icon: ShieldCheck },
-    { key: 'payment', icon: CreditCard },
-    { key: 'rbac', icon: Users },
-    { key: 'i18n', icon: Globe },
-    { key: 'cms', icon: FileText },
-    { key: 'credits', icon: Coins },
+  const items: {
+    icon: LucideIcon;
+    title: string;
+    desc: string;
+    wide?: boolean;
+    tone?: string;
+  }[] = [
+    {
+      icon: Languages,
+      title: m['pc.features.render.title'](),
+      desc: m['pc.features.render.desc'](),
+      wide: true,
+      tone: 'bg-brand-soft',
+    },
+    {
+      icon: Search,
+      title: m['pc.features.search.title'](),
+      desc: m['pc.features.search.desc'](),
+    },
+    {
+      icon: LayoutGrid,
+      title: m['pc.features.organize.title'](),
+      desc: m['pc.features.organize.desc'](),
+    },
+    {
+      icon: Combine,
+      title: m['pc.features.combine.title'](),
+      desc: m['pc.features.combine.desc'](),
+      wide: true,
+      tone: 'bg-accent',
+    },
+    {
+      icon: Save,
+      title: m['pc.features.save.title'](),
+      desc: m['pc.features.save.desc'](),
+    },
+    {
+      icon: Lock,
+      title: m['pc.features.secure.title'](),
+      desc: m['pc.features.secure.desc'](),
+      wide: true,
+      tone: 'bg-muted',
+    },
   ];
 
   return (
-    <section id="features" className="px-4 py-24 sm:py-32">
-      <div className="mx-auto max-w-5xl">
-        <div className="mb-20 text-center">
-          <h2 className="font-serif text-4xl font-normal tracking-tight sm:text-5xl">
-            {m['landing.features.title']()}
-          </h2>
-          <p className="text-muted-foreground mx-auto mt-5 max-w-lg">
-            {m['landing.features.description']()}
-          </p>
-        </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map(({ key, icon: Icon }) => (
-            <div
-              key={key}
-              className="group border-border bg-card hover:border-foreground/20 relative flex flex-col gap-4 rounded-2xl border p-6 transition-all hover:shadow-sm"
+    <section id="features" className="px-4 py-20 sm:px-6 sm:py-28">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading
+          title={m['pc.features.title']()}
+          subtitle={m['pc.features.subtitle']()}
+        />
+        <div className="mt-14 grid gap-5 md:grid-cols-3">
+          {items.map((item, i) => (
+            <Reveal
+              key={item.title}
+              delay={(i % 3) * 80}
+              className={cn(item.wide && 'md:col-span-2')}
             >
-              <div className="bg-muted text-foreground/80 group-hover:bg-foreground group-hover:text-background inline-flex size-10 items-center justify-center rounded-xl transition-colors">
-                <Icon className="size-5" strokeWidth={1.75} />
+              <div
+                className={cn(
+                  'flex h-full flex-col justify-between gap-10 rounded-3xl p-8 sm:p-10',
+                  item.tone ?? 'bg-card border-border border'
+                )}
+              >
+                <span className="bg-background inline-flex size-12 items-center justify-center rounded-2xl shadow-sm">
+                  <item.icon className="text-brand size-6" />
+                </span>
+                <div>
+                  <h3 className="text-xl font-bold tracking-tight sm:text-2xl">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground mt-2 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
-              <div className="space-y-2">
-                <h3 className="font-medium">
-                  {tDynamic(`landing.features.${key}.title`)}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {tDynamic(`landing.features.${key}.description`)}
-                </p>
-              </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

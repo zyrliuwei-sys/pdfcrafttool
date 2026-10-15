@@ -26,10 +26,15 @@ const isExternalHref = (href: string) => /^https?:\/\//.test(href);
 export function SiteHeader({
   navLinks,
   logoAlt,
+  cta,
 }: {
   navLinks?: NavLink[];
   logoAlt: string;
+  /** Primary button for signed-out visitors (defaults to "Get started" → /settings). */
+  cta?: { href: string; label: string };
 }) {
+  const ctaHref = cta?.href ?? '/settings';
+  const ctaLabel = cta?.label ?? m['common.nav.get_started']();
   const [mobileOpen, setMobileOpen] = useState(false);
   const { data: session } = useSession();
   const user = session?.user;
@@ -44,7 +49,7 @@ export function SiteHeader({
             alt={logoAlt}
             width={512}
             height={512}
-            className="size-8 rounded-full"
+            className="size-8 rounded-lg"
           />
           <span className="text-base font-bold tracking-tight">
             {envConfigs.app_name}
@@ -69,7 +74,7 @@ export function SiteHeader({
                 key={link.href}
                 href={link.href}
                 target={link.external ? '_blank' : undefined}
-                className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                className="text-foreground/80 hover:text-foreground text-sm font-medium transition-colors"
               >
                 {link.label}
               </Link>
@@ -88,8 +93,11 @@ export function SiteHeader({
               image={user.image}
             />
           ) : (
-            <Link href="/settings" className={cn(buttonVariants(), 'gap-1.5')}>
-              {m['common.nav.get_started']()}
+            <Link
+              href={ctaHref}
+              className={cn(buttonVariants(), 'h-9 gap-1.5 rounded-full px-4')}
+            >
+              {ctaLabel}
               <ArrowRight className="size-4" />
             </Link>
           )}
@@ -147,11 +155,11 @@ export function SiteHeader({
               />
             ) : (
               <Link
-                href="/settings"
-                className={cn(buttonVariants(), 'gap-1.5')}
+                href={ctaHref}
+                className={cn(buttonVariants(), 'gap-1.5 rounded-full px-4')}
                 onClick={() => setMobileOpen(false)}
               >
-                {m['common.nav.get_started']()}
+                {ctaLabel}
               </Link>
             )}
           </div>

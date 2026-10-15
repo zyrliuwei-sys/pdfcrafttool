@@ -1,4 +1,3 @@
-import { tDynamic } from '@/core/i18n/dynamic';
 import { m } from '@/paraglide/messages.js';
 import {
   Accordion,
@@ -7,34 +6,39 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 
-const FAQ_KEYS = [
-  'stack',
-  'payment',
-  'database',
-  'customize',
-  'license',
-] as const;
+export function faqItems() {
+  return [
+    { q: m['pc.faq.q1'](), a: m['pc.faq.a1']() },
+    { q: m['pc.faq.q2'](), a: m['pc.faq.a2']() },
+    { q: m['pc.faq.q3'](), a: m['pc.faq.a3']() },
+    { q: m['pc.faq.q4'](), a: m['pc.faq.a4']() },
+    { q: m['pc.faq.q5'](), a: m['pc.faq.a5']() },
+    { q: m['pc.faq.q6'](), a: m['pc.faq.a6']() },
+  ];
+}
 
 export function FAQ() {
+  const items = faqItems();
   return (
-    <section id="faq" className="px-4 py-24 sm:py-32">
+    <section id="faq" className="px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-3xl">
-        <div className="mb-16 text-center">
-          <h2 className="font-serif text-4xl font-medium tracking-tight sm:text-5xl">
-            {m['landing.faq.title']()}
-          </h2>
-          <p className="text-muted-foreground mt-5">
-            {m['landing.faq.description']()}
-          </p>
-        </div>
-        <Accordion className="w-full">
-          {FAQ_KEYS.map((key) => (
-            <AccordionItem key={key} value={key}>
-              <AccordionTrigger className="cursor-pointer py-6 text-left text-base font-medium hover:no-underline">
-                {tDynamic(`landing.faq.${key}.question`)}
+        <h2 className="text-center text-3xl font-extrabold tracking-tight sm:text-4xl">
+          {m['pc.faq.title']()}
+        </h2>
+        <Accordion className="mt-12">
+          {items.map((item) => (
+            <AccordionItem
+              key={item.q}
+              value={item.q}
+              className="border-border border-b"
+            >
+              <AccordionTrigger className="py-5 text-base font-semibold hover:no-underline sm:text-lg">
+                {item.q}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
-                {tDynamic(`landing.faq.${key}.answer`)}
+              <AccordionContent>
+                <p className="text-muted-foreground pb-5 text-base leading-relaxed">
+                  {item.a}
+                </p>
               </AccordionContent>
             </AccordionItem>
           ))}
