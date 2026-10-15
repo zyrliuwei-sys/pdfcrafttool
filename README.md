@@ -106,6 +106,8 @@ Worker with the `pdfcrafttool` D1 database. The connected GitHub repository is
 `zyrliuwei-sys/pdfcrafttool`; pushes to `main` trigger Cloudflare Workers Builds.
 The build command is `pnpm cf:ci:build`, the deploy command is
 `pnpm exec wrangler deploy`, and the root directory is `/`.
+Both production and preview build variables set `PNPM_VERSION=11.15.1`,
+matching `packageManager` in `package.json` and the workspace lockfile.
 
 To publish a code change, commit it and push it to `origin/main`. Saving local
 files alone does not start a deployment. Check the Worker's Deployments tab
