@@ -6,7 +6,7 @@ export function SectionHeading({
   eyebrow,
   title,
   subtitle,
-  align = 'center',
+  align = 'left',
   className,
   as: Tag = 'h2',
 }: {
@@ -26,22 +26,20 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <p className="text-brand mb-3 text-sm font-bold tracking-wide">
-          {eyebrow}
-        </p>
+        <p className="text-brand mb-4 text-sm font-semibold">{eyebrow}</p>
       )}
       <Tag
         className={cn(
-          'font-extrabold tracking-tight text-balance',
+          'font-display font-medium text-balance',
           Tag === 'h1'
-            ? 'text-4xl leading-[1.08] sm:text-5xl lg:text-6xl'
-            : 'text-3xl leading-tight sm:text-4xl lg:text-[44px]'
+            ? 'text-[2.6rem] leading-[1.06] sm:text-6xl lg:text-[4.25rem]'
+            : 'text-[2rem] leading-[1.1] sm:text-[2.6rem] lg:text-5xl'
         )}
       >
         {title}
       </Tag>
       {subtitle && (
-        <p className="text-muted-foreground mt-4 text-lg leading-relaxed text-pretty">
+        <p className="text-muted-foreground mt-5 max-w-2xl text-lg leading-relaxed text-pretty">
           {subtitle}
         </p>
       )}

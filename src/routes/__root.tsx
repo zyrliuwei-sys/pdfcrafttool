@@ -10,7 +10,8 @@ import {
   type ErrorComponentProps,
 } from '@tanstack/react-router';
 import { createServerFn } from '@tanstack/react-start';
-import interLatinUrl from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import newsreaderLatinUrl from '@fontsource-variable/newsreader/files/newsreader-latin-opsz-normal.woff2?url';
+import schibstedLatinUrl from '@fontsource-variable/schibsted-grotesk/files/schibsted-grotesk-latin-wght-normal.woff2?url';
 import { ThemeProvider } from 'next-themes';
 
 import { envConfigs } from '@/config';
@@ -66,12 +67,19 @@ export const Route = createRootRoute({
         { name: 'description', content: envConfigs.app_description },
       ],
       links: [
-        // Preload the latin body font (declared in styles/fonts.css).
+        // Preload the latin display + body fonts (declared in styles/fonts.css).
         {
           rel: 'preload',
           as: 'font',
           type: 'font/woff2',
-          href: interLatinUrl,
+          href: newsreaderLatinUrl,
+          crossOrigin: 'anonymous',
+        },
+        {
+          rel: 'preload',
+          as: 'font',
+          type: 'font/woff2',
+          href: schibstedLatinUrl,
           crossOrigin: 'anonymous',
         },
         { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },

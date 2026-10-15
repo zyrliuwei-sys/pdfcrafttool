@@ -4,8 +4,12 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --font-sans: 'Inter Variable', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --font-serif-display: 'Inter Variable', 'PingFang SC', sans-serif;
+  --font-sans:
+    'Schibsted Grotesk Variable', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-serif-display:
+    'Newsreader Variable', 'Songti SC', 'Noto Serif SC', serif;
+  --font-mono-code:
+    'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 }
 
 @theme inline {
@@ -36,6 +40,9 @@
   --color-brand: var(--brand);
   --color-brand-soft: var(--brand-soft);
   --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-fold: var(--fold);
+  --color-mark: var(--mark);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -54,88 +61,96 @@
   /* CJK serif glyphs use locally-installed fonts — a Chinese serif webfont
      ships 300+ @font-face subsets (~100KB render-blocking CSS on every page)
      and is not worth it for headings. */
+  --font-mono: var(--font-mono-code);
   --font-serif:
     var(--font-serif-display), ui-serif, Georgia, Cambria, 'Times New Roman',
     'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'SimSun', Times, serif;
 }
 
 @layer base {
-  /* Light — document-white canvas, ink text, PDF red brand, CTA blue pills
-     (Acrobat-style marketing look, original tokens). */
+  /* PDFCraftTool brand: "paper and annotation".
+     Cool sheet-white paper, blue-black ink, one PDF-red accent. */
   :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.2 0 0);
-    --card: oklch(0.975 0 0);
-    --card-foreground: oklch(0.2 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.2 0 0);
-    --primary: oklch(0.55 0.22 266);
-    --primary-foreground: oklch(1 0 0);
-    --secondary: oklch(0.955 0 0);
-    --secondary-foreground: oklch(0.2 0 0);
-    --muted: oklch(0.965 0 0);
-    --muted-foreground: oklch(0.47 0 0);
-    --accent: oklch(0.95 0.01 266);
-    --accent-foreground: oklch(0.2 0 0);
-    --destructive: oklch(0.58 0.22 27);
+    --background: oklch(0.99 0.002 250);
+    --foreground: oklch(0.22 0.02 262);
+    --card: oklch(0.972 0.004 250);
+    --card-foreground: oklch(0.22 0.02 262);
+    --popover: oklch(0.995 0.002 250);
+    --popover-foreground: oklch(0.22 0.02 262);
+    --primary: oklch(0.55 0.185 28);
+    --primary-foreground: oklch(0.99 0.004 28);
+    --secondary: oklch(0.955 0.005 255);
+    --secondary-foreground: oklch(0.22 0.02 262);
+    --muted: oklch(0.96 0.004 255);
+    --muted-foreground: oklch(0.48 0.018 262);
+    --accent: oklch(0.955 0.022 28);
+    --accent-foreground: oklch(0.32 0.09 28);
+    --destructive: oklch(0.55 0.2 25);
     --destructive-foreground: oklch(0.98 0 0);
-    --border: oklch(0.9 0 0);
-    --input: oklch(0.88 0 0);
-    --ring: oklch(0.55 0.22 266);
-    --brand: oklch(0.56 0.22 28);
-    --brand-soft: oklch(0.96 0.025 28);
-    --ink: oklch(0.16 0 0);
-    --chart-1: oklch(0.56 0.22 28);
-    --chart-2: oklch(0.55 0.22 266);
-    --chart-3: oklch(0.7 0.15 160);
-    --chart-4: oklch(0.75 0.15 75);
-    --chart-5: oklch(0.6 0.15 320);
-    --radius: 0.75rem;
-    --sidebar: oklch(0.98 0 0);
-    --sidebar-foreground: oklch(0.2 0 0);
-    --sidebar-primary: oklch(0.55 0.22 266);
-    --sidebar-primary-foreground: oklch(1 0 0);
-    --sidebar-accent: oklch(0.95 0 0);
-    --sidebar-accent-foreground: oklch(0.2 0 0);
-    --sidebar-border: oklch(0.9 0 0);
-    --sidebar-ring: oklch(0.55 0.22 266);
+    --border: oklch(0.905 0.006 255);
+    --input: oklch(0.88 0.008 255);
+    --ring: oklch(0.55 0.185 28);
+    --brand: oklch(0.55 0.185 28);
+    --brand-soft: oklch(0.95 0.028 28);
+    --mark: oklch(0.87 0.08 28 / 0.55);
+    --paper: oklch(0.998 0.001 250);
+    --fold: oklch(0.9 0.012 255);
+    --ink: oklch(0.22 0.02 262);
+    --chart-1: oklch(0.55 0.185 28);
+    --chart-2: oklch(0.45 0.06 262);
+    --chart-3: oklch(0.7 0.04 262);
+    --chart-4: oklch(0.75 0.1 60);
+    --chart-5: oklch(0.6 0.08 180);
+    --radius: 0.5rem;
+    --sidebar: oklch(0.975 0.003 250);
+    --sidebar-foreground: oklch(0.22 0.02 262);
+    --sidebar-primary: oklch(0.55 0.185 28);
+    --sidebar-primary-foreground: oklch(0.99 0.004 28);
+    --sidebar-accent: oklch(0.95 0.006 255);
+    --sidebar-accent-foreground: oklch(0.22 0.02 262);
+    --sidebar-border: oklch(0.905 0.006 255);
+    --sidebar-ring: oklch(0.55 0.185 28);
   }
+  /* Dark: a desk lamp over carbon paper. */
   .dark {
-    --background: oklch(0.17 0 0);
-    --foreground: oklch(0.95 0 0);
-    --card: oklch(0.21 0 0);
-    --card-foreground: oklch(0.95 0 0);
-    --popover: oklch(0.21 0 0);
-    --popover-foreground: oklch(0.95 0 0);
-    --primary: oklch(0.66 0.18 266);
-    --primary-foreground: oklch(1 0 0);
-    --secondary: oklch(0.26 0 0);
-    --secondary-foreground: oklch(0.95 0 0);
-    --muted: oklch(0.24 0 0);
-    --muted-foreground: oklch(0.72 0 0);
-    --accent: oklch(0.28 0.02 266);
-    --accent-foreground: oklch(0.95 0 0);
-    --destructive: oklch(0.65 0.2 27);
+    --background: oklch(0.19 0.012 262);
+    --foreground: oklch(0.93 0.006 255);
+    --card: oklch(0.23 0.014 262);
+    --card-foreground: oklch(0.93 0.006 255);
+    --popover: oklch(0.23 0.014 262);
+    --popover-foreground: oklch(0.93 0.006 255);
+    --primary: oklch(0.66 0.165 28);
+    --primary-foreground: oklch(0.16 0.02 28);
+    --secondary: oklch(0.27 0.014 262);
+    --secondary-foreground: oklch(0.93 0.006 255);
+    --muted: oklch(0.25 0.012 262);
+    --muted-foreground: oklch(0.72 0.012 255);
+    --accent: oklch(0.29 0.04 28);
+    --accent-foreground: oklch(0.9 0.04 28);
+    --destructive: oklch(0.65 0.19 25);
     --destructive-foreground: oklch(0.98 0 0);
-    --border: oklch(0.32 0 0);
-    --input: oklch(0.34 0 0);
-    --ring: oklch(0.66 0.18 266);
-    --brand: oklch(0.65 0.2 28);
-    --brand-soft: oklch(0.26 0.05 28);
-    --ink: oklch(0.12 0 0);
-    --chart-1: oklch(0.65 0.2 28);
-    --chart-2: oklch(0.66 0.18 266);
-    --chart-3: oklch(0.7 0.15 160);
-    --chart-4: oklch(0.75 0.15 75);
-    --chart-5: oklch(0.65 0.15 320);
-    --sidebar: oklch(0.19 0 0);
-    --sidebar-foreground: oklch(0.95 0 0);
-    --sidebar-primary: oklch(0.66 0.18 266);
-    --sidebar-primary-foreground: oklch(1 0 0);
-    --sidebar-accent: oklch(0.26 0 0);
-    --sidebar-accent-foreground: oklch(0.95 0 0);
-    --sidebar-border: oklch(0.32 0 0);
-    --sidebar-ring: oklch(0.66 0.18 266);
+    --border: oklch(0.32 0.014 262);
+    --input: oklch(0.35 0.014 262);
+    --ring: oklch(0.66 0.165 28);
+    --brand: oklch(0.68 0.16 28);
+    --brand-soft: oklch(0.27 0.045 28);
+    --mark: oklch(0.55 0.15 28 / 0.45);
+    --paper: oklch(0.22 0.013 262);
+    --fold: oklch(0.33 0.016 262);
+    --ink: oklch(0.93 0.006 255);
+    --chart-1: oklch(0.68 0.16 28);
+    --chart-2: oklch(0.75 0.04 262);
+    --chart-3: oklch(0.55 0.03 262);
+    --chart-4: oklch(0.78 0.1 60);
+    --chart-5: oklch(0.65 0.08 180);
+    --sidebar: oklch(0.21 0.013 262);
+    --sidebar-foreground: oklch(0.93 0.006 255);
+    --sidebar-primary: oklch(0.66 0.165 28);
+    --sidebar-primary-foreground: oklch(0.16 0.02 28);
+    --sidebar-accent: oklch(0.27 0.014 262);
+    --sidebar-accent-foreground: oklch(0.93 0.006 255);
+    --sidebar-border: oklch(0.32 0.014 262);
+    --sidebar-ring: oklch(0.66 0.165 28);
   }
 }
 
@@ -231,5 +246,66 @@
       transform: none;
       transition: none;
     }
+  }
+}
+
+/* Signature: the dog-eared sheet. A folded top-right corner, echoing the
+   logo, on media frames and key panels. */
+@layer components {
+  .sheet {
+    position: relative;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    clip-path: polygon(
+      0 0,
+      calc(100% - var(--fold-size, 28px)) 0,
+      100% var(--fold-size, 28px),
+      100% 100%,
+      0 100%
+    );
+  }
+  .sheet::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: var(--fold-size, 28px);
+    height: var(--fold-size, 28px);
+    background: linear-gradient(225deg, transparent 50%, var(--fold) 50%);
+    border-bottom-left-radius: 4px;
+    pointer-events: none;
+  }
+  /* Put on a wrapper: drop-shadow follows the folded outline. */
+  .sheet-lift {
+    filter: drop-shadow(0 1px 1px oklch(0.22 0.02 262 / 0.06))
+      drop-shadow(0 22px 28px oklch(0.22 0.02 262 / 0.14));
+  }
+  /* Annotation highlight that sweeps in like a PDF markup. */
+  .annot {
+    background-image: linear-gradient(var(--mark), var(--mark));
+    background-repeat: no-repeat;
+    background-position: 0 88%;
+    background-size: 0% 0.42em;
+    animation: annot-sweep 0.9s 0.35s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+    padding: 0 0.06em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  @keyframes annot-sweep {
+    to {
+      background-size: 100% 0.42em;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .annot {
+      animation: none;
+      background-size: 100% 0.42em;
+    }
+  }
+  .font-display {
+    font-family: var(--font-serif-display);
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
   }
 }

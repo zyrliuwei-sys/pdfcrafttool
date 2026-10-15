@@ -48,7 +48,7 @@ const v = PDFCRAFT_VERSION;
 export const DOWNLOADS: Record<PlatformId, DownloadAsset[]> = {
   macos: [
     asset(
-      'Universal (.dmg) — Apple silicon & Intel',
+      'Universal .dmg for Apple silicon and Intel',
       `pdfcraft-${v}-macos-universal.dmg`,
       94,
       true

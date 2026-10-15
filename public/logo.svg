@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <rect width="512" height="512" rx="112" fill="#D9261C"/>
-  <path d="M150 96h150l92 92v228a24 24 0 0 1-24 24H150a24 24 0 0 1-24-24V120a24 24 0 0 1 24-24z" fill="#ffffff"/>
-  <path d="M300 96v68a24 24 0 0 0 24 24h68z" fill="#F6B9B4"/>
-  <text x="256" y="350" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="190" font-weight="800" fill="#D9261C">P</text>
+  <rect width="512" height="512" rx="104" fill="#C1302A"/>
+  <path d="M148 92h156l84 84v220a28 28 0 0 1-28 28H148a28 28 0 0 1-28-28V120a28 28 0 0 1 28-28z" fill="#FBFBFD"/>
+  <path d="M304 92v60a24 24 0 0 0 24 24h60z" fill="#E9B4AF"/>
+  <text x="250" y="352" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-size="210" font-weight="600" fill="#C1302A">P</text>
 </svg>

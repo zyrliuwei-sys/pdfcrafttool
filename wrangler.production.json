@@ -22,7 +22,11 @@
       "migrations_dir": "drizzle"
     }
   ],
-  "triggers": {
-    "crons": ["* * * * *"]
-  }
+  "routes": [
+    {
+      "pattern": "pdfcrafttool.org",
+      "custom_domain": true
+    }
+  ],
+  "workers_dev": true
 }

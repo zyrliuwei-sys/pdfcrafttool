@@ -3,7 +3,6 @@ import { SiteHeader } from '@/components/site-header';
 
 export function Header() {
   const navLinks = [
-    { href: '/download', label: m['pc.nav.download']() },
     { href: '/online', label: m['pc.nav.online']() },
     { href: '/tutorials', label: m['pc.nav.tutorials']() },
     { href: '/pdfcraft-vs-adobe-acrobat', label: m['pc.nav.compare']() },

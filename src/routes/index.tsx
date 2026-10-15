@@ -9,16 +9,18 @@ import {
 import { pageHead } from '@/lib/seo';
 import { m } from '@/paraglide/messages.js';
 import { getLocale } from '@/paraglide/runtime.js';
+import { About } from '@/blocks/about';
 import { CompareTeaser } from '@/blocks/compare-teaser';
 import { CTA } from '@/blocks/cta';
+import { Facts } from '@/blocks/facts';
 import { FAQ, faqItems } from '@/blocks/faq';
 import { Features } from '@/blocks/features';
 import { Footer } from '@/blocks/footer';
 import { Header } from '@/blocks/header';
 import { Hero } from '@/blocks/hero';
 import { Platforms } from '@/blocks/platforms';
-import { TutorialsTeaser } from '@/blocks/tutorials-teaser';
-import { Why } from '@/blocks/why';
+import { Start } from '@/blocks/start';
+import { Who } from '@/blocks/who';
 
 export const Route = createFileRoute('/')({
   loader: () => {
@@ -47,6 +49,12 @@ export const Route = createFileRoute('/')({
             softwareVersion: PDFCRAFT_VERSION,
             license: 'https://opensource.org/licenses/MIT',
             url: PDFCRAFT_OFFICIAL,
+            author: {
+              '@type': 'Organization',
+              name: 'ArtCraft',
+              url: 'https://getartcraft.com',
+            },
+            screenshot: `${envConfigs.app_url}/imgs/pdfcraft/viewer-1600.webp`,
             downloadUrl: `${envConfigs.app_url}/download`,
             codeRepository: PDFCRAFT_REPO,
             offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
@@ -76,11 +84,13 @@ function HomePage() {
       <Header />
       <main>
         <Hero />
+        <Facts />
+        <About />
         <Features />
         <Platforms />
         <CompareTeaser />
-        <TutorialsTeaser />
-        <Why />
+        <Start />
+        <Who />
         <FAQ />
         <CTA />
       </main>

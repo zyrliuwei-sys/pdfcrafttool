@@ -38,9 +38,9 @@ export function SiteFooter({
 
   return (
     <footer className="bg-background text-foreground border-border border-t">
-      <div className="mx-auto max-w-7xl px-6 pt-14 pb-6 sm:px-10 sm:pt-16 lg:px-16">
+      <div className="mx-auto max-w-[75rem] px-4 pt-16 pb-6 sm:px-6 sm:pt-20">
         {tagline && (
-          <p className="mb-12 max-w-2xl text-3xl leading-tight font-bold tracking-tight sm:text-4xl">
+          <p className="font-display mb-12 max-w-2xl text-3xl leading-tight font-medium text-balance sm:text-4xl">
             {tagline}
           </p>
         )}

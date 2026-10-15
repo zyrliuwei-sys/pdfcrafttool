@@ -1,11 +1,5 @@
 import { useEffect, useState } from 'react';
-import {
-  AlertTriangle,
-  ArrowUpRight,
-  Download,
-  RefreshCw,
-  ShieldCheck,
-} from 'lucide-react';
+import { ArrowUpRight, Download } from 'lucide-react';
 
 import { Link } from '@/core/i18n/navigation';
 import {
@@ -61,7 +55,7 @@ function stepsFor(platform: PlatformId): string[] {
   }
 }
 
-/** Splits "text: command" steps so the shell command renders as code. */
+/** Renders the shell command at the end of a "text: command" step as code. */
 function Step({ text }: { text: string }) {
   const match = text.match(/^(.*?[:：])\s*((?:sudo |chmod |flatpak |tar ).+)$/);
   if (!match) return <span>{text}</span>;
@@ -83,6 +77,13 @@ function detectPlatform(): PlatformId {
   if (/Linux|X11/i.test(ua) && !/Android/i.test(ua)) return 'linux';
   return 'windows';
 }
+
+const external = {
+  target: '_blank',
+  rel: 'noopener noreferrer',
+  className:
+    'text-brand mt-5 inline-flex items-center gap-1 font-semibold underline-offset-4 hover:underline',
+} as const;
 
 export function DownloadGuide() {
   const [platform, setPlatform] = useState<PlatformId>('windows');
@@ -109,18 +110,17 @@ export function DownloadGuide() {
   return (
     <>
       <PageHero
-        eyebrow={`${m['pc.common.version']({ version: PDFCRAFT_VERSION })} · ${m['pc.common.released']({ date: PDFCRAFT_RELEASE_DATE })}`}
+        eyebrow={`${m['pc.common.version']({ version: PDFCRAFT_VERSION })}, ${m['pc.common.released']({ date: PDFCRAFT_RELEASE_DATE })}`}
         title={m['pc.dl.title']()}
         subtitle={m['pc.dl.subtitle']()}
       />
 
-      <section className="px-4 pb-16 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="sr-only">{m['pc.dl.choose']()}</h2>
+      <section className="px-4 pt-10 pb-20 sm:px-6">
+        <div className="mx-auto max-w-6xl">
           <div
             role="tablist"
             aria-label={m['pc.dl.choose']()}
-            className="bg-muted mx-auto flex w-full max-w-2xl gap-1 overflow-x-auto rounded-full p-1.5"
+            className="border-border flex gap-1 overflow-x-auto border-b"
           >
             {PLATFORM_IDS.map((id) => (
               <button
@@ -131,10 +131,10 @@ export function DownloadGuide() {
                 aria-selected={platform === id}
                 onClick={() => select(id)}
                 className={cn(
-                  'flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold whitespace-nowrap transition',
+                  '-mb-px flex items-center gap-2 border-b-2 px-4 py-3.5 text-sm font-semibold whitespace-nowrap transition sm:px-6',
                   platform === id
-                    ? 'bg-background text-foreground shadow'
-                    : 'text-muted-foreground hover:text-foreground'
+                    ? 'border-brand text-foreground'
+                    : 'text-muted-foreground hover:text-foreground border-transparent'
                 )}
               >
                 <PlatformIcon platform={id} className="size-4" />
@@ -143,189 +143,194 @@ export function DownloadGuide() {
             ))}
           </div>
 
-          {/* Primary download card */}
-          <div className="border-border bg-card mt-10 flex flex-col items-start gap-6 rounded-3xl border p-8 sm:flex-row sm:items-center sm:justify-between sm:p-10">
-            <div className="flex items-center gap-5">
-              <span className="bg-brand inline-flex size-16 shrink-0 items-center justify-center rounded-2xl text-white">
-                <PlatformIcon platform={platform} className="size-8" />
-              </span>
-              <div>
-                <p className="text-2xl font-extrabold tracking-tight">
-                  PdfCraft {PDFCRAFT_VERSION} · {PLATFORM_NAMES[platform]}
-                </p>
-                <p className="text-muted-foreground mt-1 text-sm">
-                  {primary.label} · {primary.sizeMb} MB
-                </p>
+          <div className="sheet-lift mt-10">
+            <div className="sheet flex flex-col items-start gap-6 p-7 [--fold-size:40px] sm:flex-row sm:items-center sm:justify-between sm:p-10">
+              <div className="flex items-center gap-5">
+                <PlatformIcon
+                  platform={platform}
+                  className="text-brand size-10 shrink-0"
+                />
+                <div>
+                  <p className="font-display text-3xl font-medium">
+                    {m['pc.dl.card_title']({
+                      version: PDFCRAFT_VERSION,
+                      platform: PLATFORM_NAMES[platform],
+                    })}
+                  </p>
+                  <p className="text-muted-foreground mt-1 text-sm">
+                    {primary.label}, {primary.sizeMb} MB
+                  </p>
+                </div>
               </div>
-            </div>
-            {platform === 'web' ? (
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  href="/online"
-                  className={cn(
-                    buttonVariants({ size: 'lg' }),
-                    'h-12 rounded-full px-6 text-base font-semibold'
-                  )}
-                >
-                  {m['pc.common.open_online']()}
-                </Link>
+              {platform === 'web' ? (
+                <div className="flex flex-wrap gap-3">
+                  <Link
+                    href="/online"
+                    className={cn(
+                      buttonVariants({ size: 'lg' }),
+                      'h-12 rounded-full px-7 text-base font-semibold'
+                    )}
+                  >
+                    {m['pc.common.online']()}
+                  </Link>
+                  <a
+                    href={primary.url}
+                    className={cn(
+                      buttonVariants({ variant: 'outline', size: 'lg' }),
+                      'h-12 gap-2 rounded-full bg-transparent px-6 text-base font-semibold'
+                    )}
+                  >
+                    <Download className="size-[18px]" />
+                    .zip
+                  </a>
+                </div>
+              ) : (
                 <a
                   href={primary.url}
                   className={cn(
-                    buttonVariants({ variant: 'outline', size: 'lg' }),
-                    'h-12 gap-2 rounded-full px-6 text-base font-semibold'
+                    buttonVariants({ size: 'lg' }),
+                    'h-12 gap-2 rounded-full px-7 text-base font-semibold'
                   )}
                 >
-                  <Download className="size-5" />
-                  .zip
+                  <Download className="size-[18px]" />
+                  {m['pc.common.download']()}
                 </a>
-              </div>
-            ) : (
-              <a
-                href={primary.url}
-                className={cn(
-                  buttonVariants({ size: 'lg' }),
-                  'h-12 gap-2 rounded-full px-7 text-base font-semibold'
-                )}
-              >
-                <Download className="size-5" />
-                {m['pc.common.download_free']()}
-              </a>
-            )}
+              )}
+            </div>
           </div>
 
-          <div className="mt-8 grid gap-8 lg:grid-cols-[1.1fr_1fr]">
-            {/* Steps */}
+          <div className="mt-14 grid gap-14 lg:grid-cols-[1.1fr_1fr]">
             <div className="min-w-0">
-              <h2 className="text-xl font-bold">
+              <h2 className="font-display text-3xl font-medium">
                 {m['pc.dl.steps_title']({ platform: PLATFORM_NAMES[platform] })}
               </h2>
-              <ol className="mt-5 space-y-4">
+              <ol className="mt-7 space-y-5">
                 {stepsFor(platform).map((step, i) => (
                   <li key={i} className="flex gap-4">
-                    <span className="bg-foreground text-background inline-flex size-7 shrink-0 items-center justify-center rounded-full text-sm font-bold">
+                    <span className="font-display text-brand w-5 shrink-0 text-xl leading-7 font-medium">
                       {i + 1}
                     </span>
-                    <p className="pt-0.5 leading-relaxed">
+                    <p className="leading-7">
                       <Step text={step} />
                     </p>
                   </li>
                 ))}
               </ol>
-              <p className="mt-6 flex gap-2 rounded-2xl bg-amber-500/10 p-4 text-sm leading-relaxed text-amber-800 dark:text-amber-300">
-                <AlertTriangle className="mt-0.5 size-4 shrink-0" />
+              <p className="bg-accent text-accent-foreground mt-8 rounded-lg p-5 text-sm leading-relaxed">
                 {m['pc.dl.alpha_note']()}
               </p>
             </div>
 
-            {/* All files */}
-            <div className="border-border min-w-0 overflow-hidden rounded-3xl border">
-              <div className="bg-muted/60 border-border grid grid-cols-[1fr_auto_auto] gap-4 border-b px-5 py-3 text-xs font-semibold tracking-wide uppercase">
-                <span>{m['pc.dl.file']()}</span>
-                <span>{m['pc.dl.size']()}</span>
-                <span className="sr-only">{m['pc.dl.get']()}</span>
-              </div>
-              {assets.map((a) => (
-                <a
-                  key={a.file}
-                  href={a.url}
-                  className="border-border hover:bg-muted/50 grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b px-5 py-3.5 text-sm transition last:border-0"
-                >
-                  <span className="min-w-0">
-                    <span className="font-medium">{a.label}</span>
-                    {a.recommended && (
-                      <span className="text-brand bg-brand-soft ml-2 rounded-full px-2 py-0.5 text-[11px] font-semibold">
-                        {m['pc.common.recommended']()}
+            <div className="min-w-0">
+              <h2 className="font-display text-3xl font-medium">
+                {m['pc.dl.files_title']()}
+              </h2>
+              <ul className="mt-7">
+                {assets.map((a) => (
+                  <li key={a.file}>
+                    <a
+                      href={a.url}
+                      className="group border-border flex items-center gap-4 border-b py-4"
+                    >
+                      <span className="min-w-0 flex-1">
+                        <span className="block font-medium">
+                          {a.label}
+                          {a.recommended && (
+                            <span className="text-brand ml-2 text-xs font-semibold">
+                              {m['pc.common.recommended']()}
+                            </span>
+                          )}
+                        </span>
+                        <span className="text-muted-foreground block truncate font-mono text-xs">
+                          {a.file}
+                        </span>
                       </span>
-                    )}
-                    <span className="text-muted-foreground block truncate font-mono text-xs">
-                      {a.file}
-                    </span>
-                  </span>
-                  <span className="text-muted-foreground tabular-nums">
-                    {a.sizeMb} MB
-                  </span>
-                  <Download
-                    className="text-primary size-4"
-                    aria-label={m['pc.dl.get']()}
-                  />
-                </a>
-              ))}
+                      <span className="text-muted-foreground font-mono text-xs tabular-nums">
+                        {a.sizeMb} MB
+                      </span>
+                      <Download
+                        className="text-foreground/40 group-hover:text-brand size-4 transition"
+                        aria-label={m['pc.dl.get']()}
+                      />
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Launcher / verify / source / requirements */}
-      <section className="bg-muted/60 px-4 py-16 sm:px-6 sm:py-20">
-        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
-          <div className="bg-background border-border min-w-0 rounded-3xl border p-8">
-            <RefreshCw className="text-brand size-6" />
-            <h2 className="mt-4 text-xl font-bold">
-              {m['pc.dl.launcher_title']()}
-            </h2>
-            <p className="text-muted-foreground mt-2 leading-relaxed">
-              {m['pc.dl.launcher_desc']()}
+      <section className="bg-card border-border border-y px-4 py-20 sm:px-6 sm:py-24">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="font-display text-[2rem] leading-[1.1] font-medium sm:text-5xl">
+            {m['pc.dl.about_title']()}
+          </h2>
+          <div className="mt-8 gap-12 text-[17px] leading-[1.75] md:columns-2">
+            <p className="mb-6">
+              {m['pc.dl.about_p1']({
+                version: PDFCRAFT_VERSION,
+                date: PDFCRAFT_RELEASE_DATE,
+              })}
             </p>
-            <a
-              href={CRAFT_LAUNCHER}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary mt-5 inline-flex items-center gap-1 font-semibold hover:underline"
-            >
-              {m['pc.dl.launcher_cta']()}
-              <ArrowUpRight className="size-4" />
-            </a>
+            <p className="text-muted-foreground">{m['pc.dl.about_p2']()}</p>
           </div>
+        </div>
+      </section>
 
-          <div className="bg-background border-border min-w-0 rounded-3xl border p-8">
-            <ShieldCheck className="text-brand size-6" />
-            <h2 className="mt-4 text-xl font-bold">
+      <section className="px-4 py-20 sm:px-6 sm:py-24">
+        <div className="mx-auto grid max-w-6xl gap-x-16 gap-y-14 md:grid-cols-2">
+          <div className="border-foreground min-w-0 border-t-2 pt-6">
+            <h2 className="font-display text-2xl font-medium">
               {m['pc.dl.verify_title']()}
             </h2>
             <p className="text-muted-foreground mt-2 leading-relaxed">
               {m['pc.dl.verify_desc']()}
             </p>
-            <div className="mt-4">
+            <div className="mt-5">
               <CodeBlock code={verifyCmd} />
             </div>
-            <a
-              href={PDFCRAFT_CHECKSUMS}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary mt-4 inline-flex items-center gap-1 font-semibold hover:underline"
-            >
+            <a href={PDFCRAFT_CHECKSUMS} {...external}>
               {m['pc.dl.verify_cta']()}
               <ArrowUpRight className="size-4" />
             </a>
           </div>
-
-          <div className="bg-background border-border min-w-0 rounded-3xl border p-8">
-            <h2 className="text-xl font-bold">{m['pc.dl.source_title']()}</h2>
+          <div className="border-foreground min-w-0 border-t-2 pt-6">
+            <h2 className="font-display text-2xl font-medium">
+              {m['pc.dl.source_title']()}
+            </h2>
             <p className="text-muted-foreground mt-2">
               {m['pc.dl.source_desc']()}
             </p>
-            <div className="mt-4">
+            <div className="mt-5">
               <CodeBlock
                 code={`git clone ${PDFCRAFT_REPO}.git\ncd pdfcraft\ncargo run --release -p pdfcraft`}
               />
             </div>
           </div>
-
-          <div className="bg-background border-border min-w-0 rounded-3xl border p-8">
-            <h2 className="text-xl font-bold">{m['pc.dl.req_title']()}</h2>
+          <div className="border-foreground min-w-0 border-t-2 pt-6">
+            <h2 className="font-display text-2xl font-medium">
+              {m['pc.dl.req_title']()}
+            </h2>
             <ul className="text-muted-foreground mt-4 list-disc space-y-2 pl-5 leading-relaxed">
               <li>{m['pc.dl.req.1']()}</li>
               <li>{m['pc.dl.req.2']()}</li>
               <li>{m['pc.dl.req.3']()}</li>
             </ul>
-            <a
-              href={PDFCRAFT_RELEASES}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary mt-5 inline-flex items-center gap-1 font-semibold hover:underline"
-            >
+            <a href={PDFCRAFT_RELEASES} {...external}>
               {m['pc.dl.all_releases']()}
+              <ArrowUpRight className="size-4" />
+            </a>
+          </div>
+          <div className="border-foreground min-w-0 border-t-2 pt-6">
+            <h2 className="font-display text-2xl font-medium">
+              {m['pc.dl.launcher_title']()}
+            </h2>
+            <p className="text-muted-foreground mt-2 leading-relaxed">
+              {m['pc.dl.launcher_desc']()}
+            </p>
+            <a href={CRAFT_LAUNCHER} {...external}>
+              {m['pc.dl.launcher_cta']()}
               <ArrowUpRight className="size-4" />
             </a>
           </div>

@@ -4,6 +4,7 @@ import { ACROBAT_OFFICIAL, PDFCRAFT_VERSION } from '@/config/pdfcraft';
 import { m } from '@/paraglide/messages.js';
 import { MarkIcon, type Mark } from '@/components/mark-icon';
 import { PageHero } from '@/components/page-hero';
+import { Screenshot } from '@/components/screenshot';
 
 interface Row {
   label: string;
@@ -113,7 +114,9 @@ function rows(): Row[] {
 function Cell({ mark, note }: { mark: Mark; note?: string }) {
   return (
     <div className="flex items-start gap-3">
-      <MarkIcon mark={mark} />
+      <span className="shrink-0">
+        <MarkIcon mark={mark} />
+      </span>
       <span className="text-muted-foreground pt-0.5 text-sm leading-relaxed">
         {note}
       </span>
@@ -141,55 +144,60 @@ export function AcrobatCompare() {
     <>
       <PageHero title={m['pc.cmp.title']()} subtitle={m['pc.cmp.subtitle']()} />
 
-      {/* Two summary cards */}
-      <section className="px-4 sm:px-6">
+      <section className="px-4 pt-12 sm:px-6">
         <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2">
-          <div className="bg-brand rounded-3xl p-8 text-white sm:p-10">
-            <p className="text-sm font-bold text-white/80">PdfCraft</p>
-            <p className="mt-2 text-4xl font-extrabold tracking-tight">$0</p>
-            <p className="mt-4 leading-relaxed text-white/90">
-              {m['pc.cmp.summary_pc']()}
-            </p>
+          <div className="sheet-lift">
+            <div className="sheet bg-accent h-full p-8 [--fold-size:36px] sm:p-10">
+              <p className="text-sm font-semibold">PdfCraft</p>
+              <p className="font-display text-brand mt-3 text-6xl font-medium">
+                $0
+              </p>
+              <p className="mt-5 leading-relaxed">{m['pc.cmp.summary_pc']()}</p>
+            </div>
           </div>
-          <div className="bg-ink rounded-3xl p-8 text-white sm:p-10">
-            <p className="text-sm font-bold text-white/70">Adobe Acrobat</p>
-            <p className="mt-2 text-4xl font-extrabold tracking-tight">
-              $14.99–24.99
-              <span className="text-lg font-semibold text-white/60">/mo</span>
+          <div className="bg-card border-border rounded-lg border p-8 sm:p-10">
+            <p className="text-sm font-semibold">Adobe Acrobat</p>
+            <p className="font-display mt-3 text-6xl font-medium">
+              $14.99
+              <span className="text-muted-foreground text-2xl">
+                {m['pc.cmp.per_month']()}
+              </span>
             </p>
-            <p className="mt-4 leading-relaxed text-white/80">
+            <p className="text-muted-foreground mt-5 leading-relaxed">
               {m['pc.cmp.summary_ac']()}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Table */}
-      <section className="px-4 py-16 sm:px-6 sm:py-20">
+      <section className="px-4 py-20 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
+          <h2 className="font-display text-[2rem] leading-[1.1] font-medium sm:text-5xl">
             {m['pc.cmp.table_title']()}
           </h2>
-          <div className="border-border mt-8 overflow-hidden rounded-3xl border">
-            <div className="bg-muted/60 border-border hidden grid-cols-[1fr_1.3fr_1.3fr] gap-6 border-b px-6 py-4 text-sm font-bold md:grid">
+          <div className="mt-10">
+            <div className="border-foreground hidden grid-cols-[1fr_1.4fr_1.4fr] gap-8 border-b-2 pb-3 text-sm font-semibold md:grid">
               <span>{m['pc.cmp.col_feature']()}</span>
               <span>{m['pc.cmp.col_pc']()}</span>
               <span>{m['pc.cmp.col_ac']()}</span>
             </div>
-            {rows().map((r) => (
+            {rows().map((r, i) => (
               <div
                 key={r.label}
-                className="border-border grid gap-3 border-b px-6 py-5 last:border-0 md:grid-cols-[1fr_1.3fr_1.3fr] md:gap-6"
+                className={
+                  'grid gap-3 rounded-md px-0 py-5 md:grid-cols-[1fr_1.4fr_1.4fr] md:gap-8 md:px-3 ' +
+                  (i % 2 === 1 ? 'md:bg-card' : '')
+                }
               >
                 <span className="font-semibold">{r.label}</span>
                 <div>
-                  <span className="text-muted-foreground mb-1 block text-xs font-semibold md:hidden">
+                  <span className="text-muted-foreground mb-1.5 block text-xs font-semibold md:hidden">
                     {m['pc.cmp.col_pc']()}
                   </span>
                   <Cell mark={r.pc} note={r.pcNote} />
                 </div>
                 <div>
-                  <span className="text-muted-foreground mb-1 block text-xs font-semibold md:hidden">
+                  <span className="text-muted-foreground mb-1.5 block text-xs font-semibold md:hidden">
                     {m['pc.cmp.col_ac']()}
                   </span>
                   <Cell mark={r.ac} note={r.acNote} />
@@ -197,7 +205,7 @@ export function AcrobatCompare() {
               </div>
             ))}
           </div>
-          <p className="text-muted-foreground mt-4 text-xs">
+          <p className="text-muted-foreground mt-6 text-xs">
             {m['pc.cmp.price_note']()}{' '}
             <a
               href={ACROBAT_OFFICIAL}
@@ -212,18 +220,38 @@ export function AcrobatCompare() {
         </div>
       </section>
 
-      {/* Pros / when to keep Acrobat */}
-      <section className="bg-muted/60 px-4 py-16 sm:px-6 sm:py-20">
-        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
-          <div className="bg-background border-border rounded-3xl border p-8 sm:p-10">
-            <h2 className="text-xl font-extrabold sm:text-2xl">
+      <section className="bg-card border-border border-y px-4 py-20 sm:px-6 sm:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1fr_1fr]">
+          <div>
+            <h2 className="font-display text-[2rem] leading-[1.1] font-medium text-balance sm:text-5xl">
+              {m['pc.cmp.essay_title']()}
+            </h2>
+            <p className="mt-7 text-[17px] leading-[1.75]">
+              {m['pc.cmp.essay_p1']()}
+            </p>
+            <p className="text-muted-foreground mt-5 text-[17px] leading-[1.75]">
+              {m['pc.cmp.essay_p2']()}
+            </p>
+          </div>
+          <Screenshot
+            name="layers"
+            sizes="(min-width: 1024px) 560px, 100vw"
+            alt={m['pc.common.screenshot_alt']({ what: m['pc.cmp.shot']() })}
+          />
+        </div>
+      </section>
+
+      <section className="px-4 py-20 sm:px-6 sm:py-24">
+        <div className="mx-auto grid max-w-6xl gap-x-16 gap-y-14 md:grid-cols-2">
+          <div className="border-foreground border-t-2 pt-6">
+            <h2 className="font-display text-3xl font-medium">
               {m['pc.cmp.adv_title']()}
             </h2>
-            <ul className="mt-6 space-y-4">
+            <ul className="mt-7 space-y-4">
               {advantages.map((a) => (
                 <li key={a} className="flex gap-3">
                   <Check
-                    className="mt-1 size-4 shrink-0 text-emerald-600 dark:text-emerald-400"
+                    className="text-brand mt-1 size-4 shrink-0"
                     strokeWidth={3}
                   />
                   <span className="leading-relaxed">{a}</span>
@@ -231,28 +259,30 @@ export function AcrobatCompare() {
               ))}
             </ul>
           </div>
-          <div className="bg-background border-border rounded-3xl border p-8 sm:p-10">
-            <h2 className="text-xl font-extrabold sm:text-2xl">
+          <div className="border-border border-t-2 pt-6">
+            <h2 className="font-display text-3xl font-medium">
               {m['pc.cmp.ac_title']()}
             </h2>
-            <ul className="mt-6 space-y-4">
+            <ul className="mt-7 space-y-4">
               {acrobatWins.map((a) => (
                 <li key={a} className="flex gap-3">
                   <X
                     className="text-muted-foreground mt-1 size-4 shrink-0"
-                    strokeWidth={3}
+                    strokeWidth={2.5}
                   />
-                  <span className="leading-relaxed">{a}</span>
+                  <span className="text-muted-foreground leading-relaxed">
+                    {a}
+                  </span>
                 </li>
               ))}
             </ul>
           </div>
         </div>
-        <div className="border-foreground mx-auto mt-10 max-w-3xl border-l-4 pl-6">
-          <h2 className="text-xl font-extrabold">
+        <div className="mx-auto mt-20 max-w-3xl text-center">
+          <h2 className="text-brand text-sm font-semibold">
             {m['pc.cmp.verdict_title']()}
           </h2>
-          <p className="mt-3 text-lg leading-relaxed">
+          <p className="font-display mt-4 text-2xl leading-snug font-medium text-balance sm:text-[2rem]">
             {m['pc.cmp.verdict']()}
           </p>
         </div>

@@ -30,9 +30,7 @@ function ComparePage() {
       <Header />
       <main>
         <AcrobatCompare />
-        <div className="pt-20 sm:pt-28">
-          <CTA />
-        </div>
+        <CTA />
       </main>
       <Footer />
     </>

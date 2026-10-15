@@ -29,8 +29,13 @@ export function Footer() {
       ],
     },
     {
-      title: m['landing.footer.legal'](),
+      title: m['pc.footer.company'](),
       links: [
+        { label: m['pc.footer.about'](), href: '/about' },
+        {
+          label: 'support@pdfcrafttool.org',
+          href: 'mailto:support@pdfcrafttool.org',
+        },
         { label: m['landing.footer.privacy'](), href: '/privacy-policy' },
         { label: m['landing.footer.terms'](), href: '/terms-of-service' },
       ],
@@ -45,7 +50,7 @@ export function Footer() {
         badges={<FooterBadgeList className="mt-10" />}
       />
       <div className="bg-background border-border border-t">
-        <p className="text-muted-foreground mx-auto max-w-7xl px-6 py-5 text-xs leading-relaxed sm:px-10 lg:px-16">
+        <p className="text-muted-foreground mx-auto max-w-[75rem] px-4 py-6 text-xs leading-relaxed sm:px-6">
           {m['pc.footer.disclaimer']()}
         </p>
       </div>

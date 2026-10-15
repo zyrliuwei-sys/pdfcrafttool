@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Download, Info, Maximize2, MonitorDown } from 'lucide-react';
+import { Download, Maximize2, MonitorDown } from 'lucide-react';
 
 import { Link } from '@/core/i18n/navigation';
 import { envConfigs } from '@/config';
@@ -7,6 +7,7 @@ import { DOWNLOADS } from '@/config/pdfcraft';
 import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
 import { PageHero } from '@/components/page-hero';
+import { Screenshot } from '@/components/screenshot';
 import { buttonVariants } from '@/components/ui/button';
 
 type Renderer = 'auto' | 'webgl' | 'cpu';
@@ -38,21 +39,24 @@ export function OnlineApp() {
   return (
     <>
       <PageHero
-        eyebrow={m['pc.common.free_badge']()}
         title={m['pc.online.title']()}
         subtitle={m['pc.online.subtitle']()}
       />
 
-      <section className="px-4 pb-16 sm:px-6">
-        <div className="mx-auto max-w-7xl">
+      <section className="px-4 pt-10 pb-20 sm:px-6">
+        <div className="mx-auto max-w-6xl">
           {src ? (
             <>
-              <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-                <div className="flex items-center gap-2 text-sm">
+              <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+                <div
+                  role="group"
+                  aria-label={m['pc.online.renderer']()}
+                  className="flex items-center gap-3 text-sm"
+                >
                   <span className="text-muted-foreground font-medium">
                     {m['pc.online.renderer']()}
                   </span>
-                  <div className="bg-muted flex gap-1 rounded-full p-1">
+                  <div className="border-border flex rounded-full border p-0.5">
                     {renderers.map((r) => (
                       <button
                         key={r.id}
@@ -60,9 +64,9 @@ export function OnlineApp() {
                         onClick={() => setRenderer(r.id)}
                         aria-pressed={renderer === r.id}
                         className={cn(
-                          'rounded-full px-3 py-1 text-xs font-semibold transition',
+                          'rounded-full px-3.5 py-1 text-xs font-semibold transition',
                           renderer === r.id
-                            ? 'bg-background shadow'
+                            ? 'bg-foreground text-background'
                             : 'text-muted-foreground hover:text-foreground'
                         )}
                       >
@@ -77,93 +81,121 @@ export function OnlineApp() {
                   rel="noopener"
                   className={cn(
                     buttonVariants({ variant: 'outline' }),
-                    'h-9 gap-2 rounded-full px-4 font-semibold'
+                    'h-9 gap-2 rounded-full bg-transparent px-4 font-semibold'
                   )}
                 >
                   <Maximize2 className="size-4" />
                   {m['pc.online.fullscreen']()}
                 </a>
               </div>
-              <div className="border-border overflow-hidden rounded-2xl border shadow-[0_30px_80px_-30px_rgba(0,0,0,0.3)]">
-                <iframe
-                  key={src}
-                  src={src}
-                  title={m['pc.online.frame_title']()}
-                  className="block h-[78vh] min-h-[520px] w-full border-0 bg-[#f1f1f3] dark:bg-[#19191c]"
-                  allow="fullscreen; clipboard-read; clipboard-write"
-                  allowFullScreen
-                />
+              <div className="sheet-lift">
+                <div className="sheet overflow-hidden [--fold-size:40px]">
+                  <iframe
+                    key={src}
+                    src={src}
+                    title={m['pc.online.frame_title']()}
+                    className="block h-[78vh] min-h-[520px] w-full border-0 bg-[#f1f1f3] dark:bg-[#19191c]"
+                    allow="fullscreen; clipboard-read; clipboard-write"
+                    allowFullScreen
+                  />
+                </div>
               </div>
-              <p className="text-muted-foreground mt-3 flex items-center gap-2 text-xs">
-                <Info className="size-3.5" />
+              <p className="text-muted-foreground mt-4 text-sm">
                 {m['pc.online.loading']()}
               </p>
             </>
           ) : (
-            <div className="border-border bg-card mx-auto max-w-3xl rounded-3xl border p-10 text-center">
-              <MonitorDown className="text-brand mx-auto size-10" />
-              <h2 className="mt-5 text-2xl font-bold">
-                {m['pc.online.unavailable_title']()}
-              </h2>
-              <p className="text-muted-foreground mx-auto mt-3 max-w-lg leading-relaxed">
-                {m['pc.online.unavailable_desc']()}
-              </p>
-              <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/download"
-                  className={cn(
-                    buttonVariants({ size: 'lg' }),
-                    'h-12 gap-2 rounded-full px-6 font-semibold'
-                  )}
-                >
-                  <Download className="size-5" />
-                  {m['pc.common.download_free']()}
-                </Link>
-                <a
-                  href={DOWNLOADS.web[0].url}
-                  className={cn(
-                    buttonVariants({ variant: 'outline', size: 'lg' }),
-                    'h-12 rounded-full px-6 font-semibold'
-                  )}
-                >
-                  {DOWNLOADS.web[0].label}
-                </a>
+            <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.2fr]">
+              <div>
+                <h2 className="font-display text-3xl font-medium sm:text-4xl">
+                  {m['pc.online.unavailable_title']()}
+                </h2>
+                <p className="text-muted-foreground mt-4 text-lg leading-relaxed">
+                  {m['pc.online.unavailable_desc']()}
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    href="/download"
+                    className={cn(
+                      buttonVariants({ size: 'lg' }),
+                      'h-12 gap-2 rounded-full px-7 font-semibold'
+                    )}
+                  >
+                    <Download className="size-[18px]" />
+                    {m['pc.common.download']()}
+                  </Link>
+                  <a
+                    href={DOWNLOADS.web[0].url}
+                    className={cn(
+                      buttonVariants({ variant: 'outline', size: 'lg' }),
+                      'h-12 rounded-full bg-transparent px-6 font-semibold'
+                    )}
+                  >
+                    {DOWNLOADS.web[0].label}
+                  </a>
+                </div>
               </div>
+              <Screenshot
+                name="tools"
+                alt={m['pc.common.screenshot_alt']({
+                  what: m['pc.start.shot'](),
+                })}
+                sizes="(min-width: 1024px) 640px, 100vw"
+              />
             </div>
           )}
         </div>
       </section>
 
-      <section className="bg-muted/60 px-4 py-16 sm:px-6 sm:py-20">
-        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.4fr_1fr]">
+      <section className="bg-card border-border border-y px-4 py-20 sm:px-6 sm:py-24">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="font-display text-[2rem] leading-[1.1] font-medium sm:text-5xl">
+            {m['pc.online.about_title']()}
+          </h2>
+          <div className="mt-8 gap-12 text-[17px] leading-[1.75] md:columns-2">
+            <p className="mb-6">{m['pc.online.about_p1']()}</p>
+            <p className="text-muted-foreground">{m['pc.online.about_p2']()}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-20 sm:px-6 sm:py-24">
+        <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[1.4fr_1fr]">
           <div>
-            <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
+            <h2 className="font-display text-3xl font-medium sm:text-4xl">
               {m['pc.online.tips_title']()}
             </h2>
-            <ul className="mt-6 space-y-4">
-              {tips.map((tip, i) => (
-                <li key={i} className="flex gap-4">
-                  <span className="bg-brand mt-2 size-2 shrink-0 rounded-full" />
-                  <p className="leading-relaxed">{tip}</p>
+            <ul className="mt-8 space-y-5">
+              {tips.map((tip) => (
+                <li
+                  key={tip}
+                  className="border-brand border-l-2 pl-5 leading-relaxed"
+                >
+                  {tip}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="bg-ink rounded-3xl p-8 text-white">
-            <MonitorDown className="size-7" />
-            <h2 className="mt-4 text-xl font-bold">
-              {m['pc.online.desktop_title']()}
-            </h2>
-            <p className="mt-2 leading-relaxed text-white/70">
-              {m['pc.online.desktop_desc']()}
-            </p>
-            <Link
-              href="/download"
-              className="mt-6 inline-flex h-11 items-center gap-2 rounded-full bg-white px-5 font-semibold text-black transition-opacity hover:opacity-90"
-            >
-              <Download className="size-4" />
-              {m['pc.common.download_free']()}
-            </Link>
+          <div className="sheet-lift self-start">
+            <div className="sheet bg-accent p-8 [--fold-size:32px]">
+              <MonitorDown className="text-brand size-8" strokeWidth={1.5} />
+              <h2 className="font-display mt-4 text-2xl font-medium">
+                {m['pc.online.desktop_title']()}
+              </h2>
+              <p className="text-muted-foreground mt-2 leading-relaxed">
+                {m['pc.online.desktop_desc']()}
+              </p>
+              <Link
+                href="/download"
+                className={cn(
+                  buttonVariants(),
+                  'mt-6 h-11 gap-2 rounded-full px-5 font-semibold'
+                )}
+              >
+                <Download className="size-4" />
+                {m['pc.common.download']()}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

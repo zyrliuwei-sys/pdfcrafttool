@@ -5,7 +5,7 @@ import { Check, Copy } from 'lucide-react';
 export function CodeBlock({ code }: { code: string }) {
   const [copied, setCopied] = useState(false);
   return (
-    <div className="bg-ink relative max-w-full min-w-0 rounded-2xl text-sm text-white">
+    <div className="bg-foreground text-background relative max-w-full min-w-0 rounded-lg font-mono text-[13px]">
       <pre className="overflow-x-auto p-5 pr-14 leading-relaxed">
         <code>{code}</code>
       </pre>
@@ -18,7 +18,7 @@ export function CodeBlock({ code }: { code: string }) {
             setTimeout(() => setCopied(false), 1500);
           });
         }}
-        className="absolute top-3 right-3 rounded-lg p-2 text-white/60 transition hover:bg-white/10 hover:text-white"
+        className="text-background/60 hover:text-background hover:bg-background/10 absolute top-3 right-3 rounded-md p-2 transition"
       >
         {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
       </button>

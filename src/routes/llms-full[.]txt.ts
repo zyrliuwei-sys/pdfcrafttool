@@ -6,8 +6,39 @@ import { m } from '@/paraglide/messages.js';
 const STATIC_PAGES: { path: string; title: string; description: string }[] = [
   {
     path: '',
-    title: 'Hotel Lobby AI Filter',
-    description: 'Two-person duet planning and prompt guide',
+    title: 'PdfCraft: free open-source PDF editor guide',
+    description:
+      'What PdfCraft is, its features, platforms and how it compares with Adobe Acrobat',
+  },
+  {
+    path: '/download',
+    title: 'Download PdfCraft',
+    description:
+      'Official PdfCraft download links and install steps for Windows, macOS, Linux, FreeBSD and the web',
+  },
+  {
+    path: '/online',
+    title: 'PdfCraft Online',
+    description:
+      'Use the PdfCraft web app in your browser; files never leave your device',
+  },
+  {
+    path: '/tutorials',
+    title: 'PdfCraft tutorials',
+    description:
+      'How to open, search, organize, combine, split and protect PDFs with PdfCraft, plus CLI and shortcuts',
+  },
+  {
+    path: '/pdfcraft-vs-adobe-acrobat',
+    title: 'PdfCraft vs Adobe Acrobat',
+    description:
+      'Feature, price and platform comparison between PdfCraft and Adobe Acrobat',
+  },
+  {
+    path: '/about',
+    title: 'About PDFCraftTool',
+    description:
+      'Who runs this independent PdfCraft guide and how to contact us (support@pdfcrafttool.org)',
   },
   {
     path: '/privacy-policy',
@@ -18,11 +49,6 @@ const STATIC_PAGES: { path: string; title: string; description: string }[] = [
     path: '/terms-of-service',
     title: 'Terms of Service',
     description: 'Terms of use',
-  },
-  {
-    path: '/acceptable-use-policy',
-    title: 'Acceptable Use Policy',
-    description: 'Content rules, child safety and how to report violations',
   },
 ];
 

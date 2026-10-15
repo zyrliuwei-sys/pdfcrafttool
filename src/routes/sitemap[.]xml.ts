@@ -11,7 +11,7 @@ const STATIC_PATHS = [
   '/pdfcraft-vs-adobe-acrobat',
   '/privacy-policy',
   '/terms-of-service',
-  '/acceptable-use-policy',
+  '/about',
 ];
 
 type Entry = {
