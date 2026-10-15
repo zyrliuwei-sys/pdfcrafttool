@@ -3,7 +3,6 @@ import type { ComponentType, ReactNode, SVGProps } from 'react';
 import { Link } from '@/core/i18n/navigation';
 import { envConfigs } from '@/config';
 import { cn } from '@/lib/utils';
-import { LocaleSelector } from '@/components/locale-selector';
 
 export interface FooterColumn {
   title: string;
@@ -96,9 +95,9 @@ export function SiteFooter({
 
         {badges}
 
-        {/* Socials + language row */}
-        <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          {socials && socials.length > 0 ? (
+        {/* Socials row */}
+        {socials && socials.length > 0 && (
+          <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-5">
               {socials.map((s) => (
                 <a
@@ -113,14 +112,8 @@ export function SiteFooter({
                 </a>
               ))}
             </div>
-          ) : (
-            <div />
-          )}
-          <LocaleSelector
-            variant="pill"
-            className="border-border text-foreground hover:bg-accent hover:text-accent-foreground"
-          />
-        </div>
+          </div>
+        )}
 
         {/* Bottom bar */}
         <div className="border-border mt-6 flex flex-col gap-3 border-t pt-5 sm:flex-row sm:items-center sm:justify-between">
