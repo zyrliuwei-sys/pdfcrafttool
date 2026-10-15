@@ -101,10 +101,16 @@ All admin pages include:
 
 ## Cloudflare deployment
 
-The production configuration targets the independent `pdfcrafttool` Worker
-and the `pdfcrafttool` D1 database. Cloudflare Workers Builds can run
-`pnpm cf:ci:build`, then `pnpm exec wrangler deploy` once this repository is
-connected to that Worker.
+The production site is https://pdfcrafttool.org, served by the `pdfcrafttool`
+Worker with the `pdfcrafttool` D1 database. The connected GitHub repository is
+`zyrliuwei-sys/pdfcrafttool`; pushes to `main` trigger Cloudflare Workers Builds.
+The build command is `pnpm cf:ci:build`, the deploy command is
+`pnpm exec wrangler deploy`, and the root directory is `/`.
+
+To publish a code change, commit it and push it to `origin/main`. Saving local
+files alone does not start a deployment. Check the Worker's Deployments tab
+for build status and logs. Other branches use `pnpm exec wrangler versions
+upload` to create preview versions.
 
 [`wrangler.production.json`](./wrangler.production.json) is the tracked source
 for the Worker name, D1 binding, domain, and public app settings. The CI build
