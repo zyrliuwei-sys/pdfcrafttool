@@ -15,10 +15,9 @@ export function Facts() {
       <dl className="border-foreground mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-10 border-t-2 pt-8 lg:grid-cols-4">
         {facts.map((f) => (
           <div key={f.label}>
-            <dt className="sr-only">{f.label}</dt>
-            <dd className="font-display text-4xl font-medium tabular-nums sm:text-5xl">
+            <dt className="font-display text-4xl font-medium tabular-nums sm:text-5xl">
               {f.value}
-            </dd>
+            </dt>
             <dd className="text-muted-foreground mt-2 max-w-[16rem] text-sm leading-snug">
               {f.label}
             </dd>

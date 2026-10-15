@@ -20,6 +20,7 @@ import { Header } from '@/blocks/header';
 import { Hero } from '@/blocks/hero';
 import { Platforms } from '@/blocks/platforms';
 import { Start } from '@/blocks/start';
+import { TryOnline } from '@/blocks/try-online';
 import { Who } from '@/blocks/who';
 
 export const Route = createFileRoute('/')({
@@ -86,6 +87,7 @@ function HomePage() {
         <Hero />
         <Facts />
         <About />
+        <TryOnline />
         <Features />
         <Platforms />
         <CompareTeaser />

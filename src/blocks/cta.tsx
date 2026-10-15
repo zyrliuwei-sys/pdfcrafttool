@@ -1,8 +1,9 @@
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 import { Link } from '@/core/i18n/navigation';
 import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
+import { SmartDownload } from '@/components/smart-download';
 import { buttonVariants } from '@/components/ui/button';
 
 export function CTA() {
@@ -17,24 +18,15 @@ export function CTA() {
             {m['pc.cta.subtitle']()}
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
+            <SmartDownload label={(platform) => m['pc.dl.for']({ platform })} />
             <Link
               href="/download"
-              className={cn(
-                buttonVariants({ size: 'lg' }),
-                'h-12 gap-2 rounded-full px-7 text-base font-semibold'
-              )}
-            >
-              <Download className="size-[18px]" />
-              {m['pc.common.download']()}
-            </Link>
-            <Link
-              href="/online"
               className={cn(
                 buttonVariants({ variant: 'outline', size: 'lg' }),
                 'border-foreground/80 h-12 gap-2 rounded-full border-[1.5px] bg-transparent px-7 text-base font-semibold'
               )}
             >
-              {m['pc.common.online']()}
+              {m['pc.dl.other']()}
               <ArrowRight className="size-[18px]" />
             </Link>
           </div>

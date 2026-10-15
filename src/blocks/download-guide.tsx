@@ -19,6 +19,7 @@ import { m } from '@/paraglide/messages.js';
 import { CodeBlock } from '@/components/code-block';
 import { PageHero } from '@/components/page-hero';
 import { PlatformIcon } from '@/components/platform-icon';
+import { detectPlatform } from '@/components/smart-download';
 import { buttonVariants } from '@/components/ui/button';
 
 function stepsFor(platform: PlatformId): string[] {
@@ -67,15 +68,6 @@ function Step({ text }: { text: string }) {
       </code>
     </span>
   );
-}
-
-function detectPlatform(): PlatformId {
-  const ua = navigator.userAgent;
-  if (/Mac/i.test(ua) && !/iPhone|iPad/i.test(ua)) return 'macos';
-  if (/Windows/i.test(ua)) return 'windows';
-  if (/FreeBSD/i.test(ua)) return 'freebsd';
-  if (/Linux|X11/i.test(ua) && !/Android/i.test(ua)) return 'linux';
-  return 'windows';
 }
 
 const external = {

@@ -1,9 +1,9 @@
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 
-import { Link } from '@/core/i18n/navigation';
 import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
 import { Screenshot } from '@/components/screenshot';
+import { SmartDownload } from '@/components/smart-download';
 import { buttonVariants } from '@/components/ui/button';
 
 export function Hero() {
@@ -22,26 +22,17 @@ export function Hero() {
           {m['pc.hero.subtitle']()}
         </p>
         <div className="mt-9 flex flex-wrap justify-center gap-3">
-          <Link
-            href="/download"
-            className={cn(
-              buttonVariants({ size: 'lg' }),
-              'h-12 gap-2 rounded-full px-7 text-base font-semibold'
-            )}
-          >
-            <Download className="size-[18px]" />
-            {m['pc.common.download']()}
-          </Link>
-          <Link
-            href="/online"
+          <SmartDownload label={(platform) => m['pc.dl.for']({ platform })} />
+          <a
+            href="#try"
             className={cn(
               buttonVariants({ variant: 'outline', size: 'lg' }),
               'border-foreground/80 h-12 gap-2 rounded-full border-[1.5px] bg-transparent px-7 text-base font-semibold'
             )}
           >
-            {m['pc.common.online']()}
-            <ArrowRight className="size-[18px]" />
-          </Link>
+            {m['pc.hero.try']()}
+            <ArrowDown className="size-[18px]" />
+          </a>
         </div>
       </div>
       <div className="mx-auto mt-14 max-w-6xl sm:mt-16">

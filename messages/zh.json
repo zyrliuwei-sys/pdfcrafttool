@@ -1,7 +1,7 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-  "common.metadata.title": "PdfCraft：ArtCraft 出品的免费开源 PDF 编辑器 | 下载与在线使用",
-  "common.metadata.description": "PdfCraft 是 ArtCraft 出品的免费开源 PDF 阅读与编辑软件。下载 Windows、Mac、Linux 版，在线使用，学习基础操作，并与 Adobe Acrobat 对比。",
+  "common.metadata.title": "PdfCraft：免费开源 PDF 编辑器 | 下载与在线使用",
+  "common.metadata.description": "PdfCraft 是 ArtCraft 出品的免费开源 PDF 编辑器。下载 Windows、Mac、Linux 版 PdfCraft，在线试用，并了解它与 Adobe Acrobat 的区别。",
   "common.sign.sign_in_title": "登录",
   "common.auth_callback.redirecting": "正在跳转…",
   "common.auth_callback.error": "登录未能完成，请重试。",
@@ -1072,7 +1072,7 @@
   "pc.nav.tutorials": "教程",
   "pc.nav.compare": "对比 Acrobat",
   "pc.nav.download": "下载",
-  "pc.nav.cta": "下载 PdfCraft",
+  "pc.nav.cta": "下载",
   "pc.logo_alt": "PDFCraftTool 标志",
   "pc.footer.tagline": "PdfCraft 的下载、教程与对比，都在这里。",
   "pc.footer.product": "PdfCraft",
@@ -1380,5 +1380,16 @@
   "pc.dl.card_title": "PdfCraft {version} {platform} 版",
   "pc.dl.files_title": "全部文件",
   "pc.footer.company": "PDFCraftTool",
-  "pc.footer.about": "关于与联系"
+  "pc.footer.about": "关于与联系",
+  "pc.hero.try": "在浏览器中试用 PdfCraft",
+  "pc.dl.for": "下载 PdfCraft {platform} 版",
+  "pc.dl.other": "其他系统与安装步骤",
+  "pc.dl.guide": "安装指南",
+  "pc.try.title": "直接在这里试用 PdfCraft",
+  "pc.try.body": "这里运行的就是真正的 PdfCraft，即官方 WebAssembly 版本。加载后拖入一个 PDF，试试搜索、旋转页面或添加批注。文件由你自己的浏览器打开，不会上传。首次加载约下载 5 MB，之后从浏览器缓存打开。",
+  "pc.try.load": "在此加载 PdfCraft",
+  "pc.try.size": "约 5 MB，本地运行",
+  "pc.try.fullscreen": "全屏打开 PdfCraft 在线版",
+  "pc.try.unavailable": "托管的 PdfCraft 网页版正在部署中，请先下载桌面版。",
+  "pc.try.shot": "加载前的 PdfCraft 欢迎页"
 }

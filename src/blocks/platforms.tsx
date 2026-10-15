@@ -30,28 +30,34 @@ export function Platforms() {
             const rec = DOWNLOADS[id].find((a) => a.recommended)!;
             return (
               <Reveal key={id} delay={i * 50}>
-                <li>
+                <li className="border-border flex items-center gap-5 border-b py-5">
+                  <PlatformIcon
+                    platform={id}
+                    className="text-muted-foreground size-6 shrink-0"
+                  />
+                  <a href={rec.url} className="group min-w-0 flex-1">
+                    <span className="font-display group-hover:text-brand block text-xl font-medium transition">
+                      {PLATFORM_NAMES[id]}
+                    </span>
+                    <span className="text-muted-foreground block truncate text-sm">
+                      {rec.label}, {rec.sizeMb} MB
+                    </span>
+                  </a>
                   <Link
                     href={`/download#${id}`}
-                    className="group border-border flex items-center gap-5 border-b py-5"
+                    className="text-muted-foreground hover:text-foreground hidden text-sm underline-offset-4 hover:underline sm:inline"
                   >
-                    <PlatformIcon
-                      platform={id}
-                      className="text-muted-foreground group-hover:text-brand size-6 shrink-0 transition"
-                    />
-                    <span className="min-w-0 flex-1">
-                      <span className="font-display block text-xl font-medium">
-                        {PLATFORM_NAMES[id]}
-                      </span>
-                      <span className="text-muted-foreground block truncate text-sm">
-                        {rec.label}
-                      </span>
-                    </span>
-                    <span className="text-muted-foreground font-mono text-xs tabular-nums">
-                      {rec.sizeMb} MB
-                    </span>
-                    <Download className="text-foreground/40 group-hover:text-brand size-5 transition" />
+                    {m['pc.dl.guide']()}
                   </Link>
+                  <a
+                    href={rec.url}
+                    aria-label={m['pc.dl.for']({
+                      platform: PLATFORM_NAMES[id],
+                    })}
+                    className="text-foreground/50 hover:text-brand transition"
+                  >
+                    <Download className="size-5" />
+                  </a>
                 </li>
               </Reveal>
             );

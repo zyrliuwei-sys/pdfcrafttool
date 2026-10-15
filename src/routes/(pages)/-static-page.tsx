@@ -69,6 +69,11 @@ export function staticPageRouteOptions(slug: string) {
         meta: [
           { title: meta.title },
           { name: 'description', content: meta.description },
+          { property: 'og:title', content: meta.title },
+          { property: 'og:description', content: meta.description },
+          { property: 'og:url', content: canonical },
+          { property: 'og:image', content: `${envConfigs.app_url}/og.jpg` },
+          { name: 'twitter:card', content: 'summary_large_image' },
         ],
         links: [
           { rel: 'canonical', href: canonical },

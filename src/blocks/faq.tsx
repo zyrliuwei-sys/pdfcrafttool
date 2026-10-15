@@ -33,7 +33,7 @@ export function FAQ() {
         <h2 className="font-display text-[2rem] leading-[1.1] font-medium text-balance sm:text-5xl lg:sticky lg:top-28 lg:self-start">
           {m['pc.faq.title']()}
         </h2>
-        <Accordion>
+        <Accordion hiddenUntilFound>
           {items.map((item) => (
             <AccordionItem
               key={item.q}

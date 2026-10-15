@@ -1,7 +1,7 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-  "common.metadata.title": "PdfCraft: Free Open-Source PDF Editor by ArtCraft | Download & Online",
-  "common.metadata.description": "PdfCraft is the free, open-source PDF reader and editor from ArtCraft. Download PdfCraft for Windows, Mac or Linux, use it online, learn the basics and compare it with Adobe Acrobat.",
+  "common.metadata.title": "PdfCraft: Free Open-Source PDF Editor | Download & Online",
+  "common.metadata.description": "PdfCraft is ArtCraft's free, open-source PDF editor. Download PdfCraft for Windows, Mac or Linux, try it online, and see how it compares with Adobe Acrobat.",
   "common.sign.sign_in_title": "Sign In",
   "common.auth_callback.redirecting": "Signing you in…",
   "common.auth_callback.error": "Could not complete sign-in. Please try again.",
@@ -1072,7 +1072,7 @@
   "pc.nav.tutorials": "Tutorials",
   "pc.nav.compare": "vs Acrobat",
   "pc.nav.download": "Download",
-  "pc.nav.cta": "Download PdfCraft",
+  "pc.nav.cta": "Download",
   "pc.logo_alt": "PDFCraftTool logo",
   "pc.footer.tagline": "Every PdfCraft download, guide and comparison in one place.",
   "pc.footer.product": "PdfCraft",
@@ -1380,5 +1380,16 @@
   "pc.dl.card_title": "PdfCraft {version} for {platform}",
   "pc.dl.files_title": "All files",
   "pc.footer.company": "PDFCraftTool",
-  "pc.footer.about": "About & contact"
+  "pc.footer.about": "About & contact",
+  "pc.hero.try": "Try PdfCraft in your browser",
+  "pc.dl.for": "Download PdfCraft for {platform}",
+  "pc.dl.other": "Other systems and install steps",
+  "pc.dl.guide": "Install guide",
+  "pc.try.title": "Try PdfCraft right here",
+  "pc.try.body": "This is the real PdfCraft app, the official WebAssembly build, running inside this page. Load it, drop in a PDF and try searching, rotating pages or adding a comment. Your file is opened by your own browser and never uploaded. The first load downloads about 5 MB; after that it opens from your browser cache.",
+  "pc.try.load": "Load PdfCraft here",
+  "pc.try.size": "About 5 MB, runs locally",
+  "pc.try.fullscreen": "Open PdfCraft Online full screen",
+  "pc.try.unavailable": "The hosted PdfCraft web app is being set up. Download the desktop app in the meantime.",
+  "pc.try.shot": "the PdfCraft welcome screen before loading"
 }
