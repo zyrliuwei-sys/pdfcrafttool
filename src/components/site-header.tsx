@@ -91,13 +91,27 @@ export function SiteHeader({
               image={user.image}
             />
           ) : (
-            <Link
-              href={ctaHref}
-              className={cn(buttonVariants(), 'h-9 gap-1.5 rounded-full px-4')}
-            >
-              {ctaLabel}
-              <ArrowRight className="size-4" />
-            </Link>
+            <>
+              <Link
+                href="/sign-in"
+                className={cn(
+                  buttonVariants({ variant: 'ghost' }),
+                  'h-9 rounded-full px-4'
+                )}
+              >
+                {m['common.nav.sign_in']()}
+              </Link>
+              <Link
+                href={ctaHref}
+                className={cn(
+                  buttonVariants(),
+                  'h-9 gap-1.5 rounded-full px-4'
+                )}
+              >
+                {ctaLabel}
+                <ArrowRight className="size-4" />
+              </Link>
+            </>
           )}
         </div>
 
@@ -151,13 +165,25 @@ export function SiteHeader({
                 image={user.image}
               />
             ) : (
-              <Link
-                href={ctaHref}
-                className={cn(buttonVariants(), 'gap-1.5 rounded-full px-4')}
-                onClick={() => setMobileOpen(false)}
-              >
-                {ctaLabel}
-              </Link>
+              <>
+                <Link
+                  href="/sign-in"
+                  className={cn(
+                    buttonVariants({ variant: 'outline' }),
+                    'rounded-full px-4'
+                  )}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {m['common.nav.sign_in']()}
+                </Link>
+                <Link
+                  href={ctaHref}
+                  className={cn(buttonVariants(), 'gap-1.5 rounded-full px-4')}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {ctaLabel}
+                </Link>
+              </>
             )}
           </div>
         </div>
