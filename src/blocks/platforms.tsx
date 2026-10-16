@@ -17,6 +17,9 @@ export function Platforms() {
           <p className="text-muted-foreground mt-6 text-[17px] leading-[1.75]">
             {m['pc.platforms.body']()}
           </p>
+          <p className="text-muted-foreground mt-4 text-sm">
+            {m['pc.hero.dl_note']()}
+          </p>
           <Link
             href="/download"
             className="text-brand mt-8 inline-flex items-center gap-1.5 font-semibold underline-offset-4 hover:underline"

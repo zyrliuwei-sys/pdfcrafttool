@@ -16,6 +16,7 @@ import { ThemeProvider } from 'next-themes';
 
 import { envConfigs } from '@/config';
 import { getQueryClient } from '@/lib/query-client';
+import { m } from '@/paraglide/messages.js';
 import { getLocale } from '@/paraglide/runtime.js';
 import { Ads } from '@/components/analytics/ads';
 import { Clarity } from '@/components/analytics/clarity';
@@ -155,6 +156,9 @@ function NotFound() {
       <a href="/" className="text-sm underline underline-offset-4">
         Back to home
       </a>
+      <p className="text-muted-foreground mt-8 max-w-xl px-4 text-center text-xs leading-relaxed">
+        {m['pc.footer.disclaimer']()}
+      </p>
     </div>
   );
 }

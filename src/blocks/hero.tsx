@@ -34,6 +34,9 @@ export function Hero() {
             <ArrowDown className="size-[18px]" />
           </a>
         </div>
+        <p className="text-muted-foreground mt-4 text-xs">
+          {m['pc.hero.dl_note']()}
+        </p>
       </div>
       <div className="mx-auto mt-14 max-w-6xl sm:mt-16">
         <Screenshot

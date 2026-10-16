@@ -12,6 +12,16 @@ export const PDFCRAFT_DISCORD = 'https://discord.gg/artcraft';
 export const CRAFT_LAUNCHER =
   'https://github.com/storytold/craft-launcher/releases';
 export const ACROBAT_OFFICIAL = 'https://www.adobe.com/acrobat.html';
+export const ACROBAT_PRICING = 'https://www.adobe.com/acrobat/pricing.html';
+
+// The unrelated browser toolkit that shares the PdfCraft name. Mentioned only
+// so visitors can tell the two projects apart.
+export const OTHER_PDFCRAFT_REPO = 'https://github.com/PDFCraftTool/pdfcraft';
+// Library behind the site's own merge / split / images-to-PDF tools.
+export const PDF_LIB_REPO = 'https://github.com/Hopding/pdf-lib';
+export const FOXIT_EDITOR = 'https://www.foxit.com/pdf-editor/';
+export const PDFSAM = 'https://pdfsam.org';
+export const OKULAR = 'https://okular.kde.org';
 
 const releaseFile = (file: string) =>
   `${PDFCRAFT_RELEASES}/download/v${PDFCRAFT_VERSION}/${file}`;
@@ -86,9 +96,13 @@ export const DOWNLOADS: Record<PlatformId, DownloadAsset[]> = {
     ),
     asset('x86_64 tarball', `pdfcraft-${v}-linux-x86_64.tar.gz`, 85),
     asset('ARM64 AppImage', `pdfcraft-${v}-linux-aarch64.AppImage`, 78),
+    asset('ARM64 Flatpak', `pdfcraft-${v}-linux-aarch64.flatpak`, 61),
     asset('ARM64 .deb', `pdfcraft-${v}-linux-aarch64.deb`, 83),
     asset('ARM64 .rpm', `pdfcraft-${v}-linux-aarch64.rpm`, 83),
-    asset('RISC-V 64 .deb', `pdfcraft-${v}-linux-riscv64.deb`, 83),
+    asset('ARM64 tarball', `pdfcraft-${v}-linux-aarch64.tar.gz`, 81),
+    asset('RISC-V 64 .deb', `pdfcraft-${v}-linux-riscv64.deb`, 84),
+    asset('RISC-V 64 .rpm', `pdfcraft-${v}-linux-riscv64.rpm`, 83),
+    asset('RISC-V 64 tarball', `pdfcraft-${v}-linux-riscv64.tar.gz`, 83),
     asset('CLI x86_64 (.tar.gz)', `pdfcraft-cli-${v}-linux-x86_64.tar.gz`, 30),
     asset('CLI ARM64 (.tar.gz)', `pdfcraft-cli-${v}-linux-aarch64.tar.gz`, 29),
   ],

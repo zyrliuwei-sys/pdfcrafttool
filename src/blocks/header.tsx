@@ -6,6 +6,7 @@ export function Header() {
     { href: '/online', label: m['pc.nav.online']() },
     { href: '/tutorials', label: m['pc.nav.tutorials']() },
     { href: '/pdfcraft-vs-adobe-acrobat', label: m['pc.nav.compare']() },
+    { href: '/alternatives', label: m['pc.nav.alternatives']() },
   ];
 
   return (

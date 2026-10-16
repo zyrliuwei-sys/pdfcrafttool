@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { ArrowUpRight, Download } from 'lucide-react';
 
 import { Link } from '@/core/i18n/navigation';
@@ -17,10 +17,26 @@ import {
 import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
 import { CodeBlock } from '@/components/code-block';
+import { FaqSection } from '@/components/faq-section';
 import { PageHero } from '@/components/page-hero';
 import { PlatformIcon } from '@/components/platform-icon';
 import { detectPlatform } from '@/components/smart-download';
 import { buttonVariants } from '@/components/ui/button';
+
+export function downloadFaqItems() {
+  return [
+    { q: m['pc.dl.faq.q1'](), a: m['pc.dl.faq.a1']() },
+    { q: m['pc.dl.faq.q2'](), a: m['pc.dl.faq.a2']() },
+    {
+      q: m['pc.dl.faq.q3'](),
+      a: m['pc.dl.faq.a3']({ version: PDFCRAFT_VERSION }),
+    },
+    { q: m['pc.dl.faq.q4'](), a: m['pc.dl.faq.a4']() },
+    { q: m['pc.dl.faq.q5'](), a: m['pc.dl.faq.a5']() },
+    { q: m['pc.dl.faq.q6'](), a: m['pc.dl.faq.a6']() },
+    { q: m['pc.dl.faq.q7'](), a: m['pc.dl.faq.a7']() },
+  ];
+}
 
 function stepsFor(platform: PlatformId): string[] {
   switch (platform) {
@@ -52,7 +68,11 @@ function stepsFor(platform: PlatformId): string[] {
         m['pc.dl.freebsd.3'](),
       ];
     case 'web':
-      return [m['pc.dl.web.1'](), m['pc.dl.web.2'](), m['pc.dl.web.3']()];
+      return [
+        m['pc.dl.web.1'](),
+        m['pc.dl.web.2'](),
+        m['pc.dl.web.3']({ version: PDFCRAFT_VERSION }),
+      ];
   }
 }
 
@@ -77,7 +97,8 @@ const external = {
     'text-brand mt-5 inline-flex items-center gap-1 font-semibold underline-offset-4 hover:underline',
 } as const;
 
-export function DownloadGuide() {
+/** `notice` renders between the page title and the platform picker. */
+export function DownloadGuide({ notice }: { notice?: ReactNode }) {
   const [platform, setPlatform] = useState<PlatformId>('windows');
 
   useEffect(() => {
@@ -106,6 +127,7 @@ export function DownloadGuide() {
         title={m['pc.dl.title']()}
         subtitle={m['pc.dl.subtitle']()}
       />
+      {notice}
 
       <section className="px-4 pt-10 pb-20 sm:px-6">
         <div className="mx-auto max-w-6xl">
@@ -190,6 +212,18 @@ export function DownloadGuide() {
               )}
             </div>
           </div>
+
+          <p className="text-muted-foreground mt-4 text-sm">
+            {m['pc.dl.source_note']()}{' '}
+            <a
+              href={PDFCRAFT_RELEASES}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground font-mono underline underline-offset-4"
+            >
+              github.com/storytold/pdfcraft/releases
+            </a>
+          </p>
 
           <div className="mt-14 grid gap-14 lg:grid-cols-[1.1fr_1fr]">
             <div className="min-w-0">
@@ -328,6 +362,12 @@ export function DownloadGuide() {
           </div>
         </div>
       </section>
+
+      <FaqSection
+        id="install-faq"
+        title={m['pc.dl.faq_title']()}
+        items={downloadFaqItems()}
+      />
     </>
   );
 }

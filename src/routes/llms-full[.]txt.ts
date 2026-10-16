@@ -14,13 +14,19 @@ const STATIC_PAGES: { path: string; title: string; description: string }[] = [
     path: '/download',
     title: 'Download PdfCraft',
     description:
-      'Official PdfCraft download links and install steps for Windows, macOS, Linux, FreeBSD and the web',
+      'PdfCraft download links (to the github.com/storytold/pdfcraft releases) and install steps for Windows, macOS, Linux, FreeBSD and the web',
   },
   {
     path: '/online',
     title: 'PdfCraft Online',
     description:
       'Use the PdfCraft web app in your browser; files never leave your device',
+  },
+  {
+    path: '/alternatives',
+    title: 'PdfCraft alternatives',
+    description:
+      'When PdfCraft fits, when it does not, and how it compares with Adobe Acrobat, Foxit PDF Editor, PDFsam Basic, Okular and the unrelated PDFCraftTool/pdfcraft browser toolkit',
   },
   {
     path: '/tutorials',
@@ -36,7 +42,7 @@ const STATIC_PAGES: { path: string; title: string; description: string }[] = [
   },
   {
     path: '/about',
-    title: 'About PDFCraftTool',
+    title: 'About PDFCraftTool.org',
     description:
       'Who runs this independent PdfCraft guide and how to contact us (support@pdfcrafttool.org)',
   },

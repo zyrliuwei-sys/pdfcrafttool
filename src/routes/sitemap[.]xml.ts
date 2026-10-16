@@ -9,6 +9,7 @@ const STATIC_PATHS = [
   '/online',
   '/tutorials',
   '/pdfcraft-vs-adobe-acrobat',
+  '/alternatives',
   '/privacy-policy',
   '/terms-of-service',
   '/about',

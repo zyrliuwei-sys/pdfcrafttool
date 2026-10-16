@@ -8,7 +8,7 @@
   "vars": {
     "DATABASE_PROVIDER": "d1",
     "VITE_APP_URL": "https://pdfcrafttool.org",
-    "VITE_APP_NAME": "PDFCraftTool",
+    "VITE_APP_NAME": "PDFCraftTool.org",
     "VITE_APP_LOGO": "/logo.svg",
     "VITE_APP_DESCRIPTION": "PdfCraft guide: free open-source PDF reader & editor — download, use online, tutorials and Acrobat comparison.",
     "VITE_PDFCRAFT_WEB_URL": "https://app.pdfcrafttool.org/index.html",

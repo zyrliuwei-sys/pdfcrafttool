@@ -5,7 +5,7 @@ import { envConfigs } from '@/config';
 import { m } from '@/paraglide/messages.js';
 
 /**
- * Inline PdfCraft Online. A click-to-load facade keeps the ~5 MB app off the
+ * Inline PdfCraft Online. A click-to-load facade keeps the ~13 MB (compressed) app off the
  * initial page weight; clicking swaps in the real WebAssembly app.
  */
 export function TryOnline() {

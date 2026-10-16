@@ -17,7 +17,7 @@ export function detectPlatform(): PlatformId {
 
 /**
  * One-click download of the recommended PdfCraft build for the visitor's
- * system, straight from the official release. Server-renders the Windows
+ * system, straight from the GitHub release. Server-renders the Windows
  * build and switches after hydration.
  */
 export function SmartDownload({

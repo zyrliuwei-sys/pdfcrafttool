@@ -17,6 +17,7 @@ export function Footer() {
         { label: m['pc.nav.online'](), href: '/online' },
         { label: m['pc.nav.tutorials'](), href: '/tutorials' },
         { label: m['pc.nav.compare'](), href: '/pdfcraft-vs-adobe-acrobat' },
+        { label: m['pc.nav.alternatives'](), href: '/alternatives' },
       ],
     },
     {
