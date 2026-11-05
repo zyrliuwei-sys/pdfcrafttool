@@ -1,0 +1,533 @@
+{
+  "property": "sc-domain:pdfcrafttool.org",
+  "reviewedAt": "2026-11-05",
+  "filter": "Last 28 days, Web",
+  "chartVisibleDates": ["2026-10-14", "2026-11-03"],
+  "propertyTotals": {
+    "clicks": 65,
+    "impressions": 1980
+  },
+  "visibleQueryCount": 65,
+  "notes": [
+    "GSC property totals differ from the sum of named queries; hidden/anonymized queries are not assigned to guide topics.",
+    "Prioritized clicks and impressions for distinct useful intents; generic brand queries remain owned by the homepage.",
+    "Grouped impression counts are sums of query rows, not unique searchers or external monthly search volume.",
+    "CLI queries (18 impressions) are a follow-up topic; Linux queries (19) and Windows queries (22) rank ahead by grouped impressions."
+  ],
+  "selected": [
+    {
+      "slug": "pdfcraft-tutorial-beginners",
+      "queries": ["pdfcraft tutorial", "how to use pdfcraft"],
+      "clicks": 3,
+      "impressions": 18,
+      "englishWordCount": 1406,
+      "imagesPerArticle": 3,
+      "locales": ["en", "zh"]
+    },
+    {
+      "slug": "switch-from-adobe-acrobat-to-pdfcraft",
+      "queries": [
+        "pdfcraft vs adobe",
+        "pdf craft vs adobe acrobat",
+        "pdfcraft vs acrobat",
+        "pdfcraft vs adobe acrobat",
+        "pdfcraft vs adobe acrobat pro",
+        "adobe acrobat vs pdfcraft",
+        "pdfcraft vs acrobat pro",
+        "pdfcraft vs adobe reader"
+      ],
+      "clicks": 0,
+      "impressions": 37,
+      "englishWordCount": 1443,
+      "imagesPerArticle": 3,
+      "locales": ["en", "zh"]
+    },
+    {
+      "slug": "pdfcraft-windows-installation",
+      "queries": [
+        "pdfcraft windows",
+        "pdfcraft-<ver>-windows-x64.msi",
+        "pdfcraft for windows",
+        "pdf craft windows",
+        "pdf craft portable"
+      ],
+      "clicks": 1,
+      "impressions": 22,
+      "englishWordCount": 1332,
+      "imagesPerArticle": 3,
+      "locales": ["en", "zh"]
+    },
+    {
+      "slug": "pdfcraft-linux-installation",
+      "queries": [
+        "pdfcraft linux pdf editor",
+        "pdfcraft linux mint",
+        "pdf craft linux",
+        "pdfcraft flatpak",
+        "pdfcraft arch linux"
+      ],
+      "clicks": 0,
+      "impressions": 19,
+      "englishWordCount": 1351,
+      "imagesPerArticle": 3,
+      "locales": ["en", "zh"]
+    }
+  ],
+  "queries": [
+    {
+      "query": "pdfcraft tutorial",
+      "clicks": "3",
+      "impressions": "11",
+      "ctr": "27.3%",
+      "position": "3.8"
+    },
+    {
+      "query": "pdfcraft",
+      "clicks": "1",
+      "impressions": "34",
+      "ctr": "2.9%",
+      "position": "26.4"
+    },
+    {
+      "query": "pdfcraft online",
+      "clicks": "1",
+      "impressions": "6",
+      "ctr": "16.7%",
+      "position": "17.3"
+    },
+    {
+      "query": "pdfgraft",
+      "clicks": "1",
+      "impressions": "4",
+      "ctr": "25%",
+      "position": "8.8"
+    },
+    {
+      "query": "pdf craft portable",
+      "clicks": "1",
+      "impressions": "1",
+      "ctr": "100%",
+      "position": "12.0"
+    },
+    {
+      "query": "pdfcraft website",
+      "clicks": "1",
+      "impressions": "1",
+      "ctr": "100%",
+      "position": "13.0"
+    },
+    {
+      "query": "pdfcraft-cli",
+      "clicks": "0",
+      "impressions": "14",
+      "ctr": "0%",
+      "position": "7.1"
+    },
+    {
+      "query": "pdfcraft windows",
+      "clicks": "0",
+      "impressions": "14",
+      "ctr": "0%",
+      "position": "12.1"
+    },
+    {
+      "query": "pdfcraft vs adobe",
+      "clicks": "0",
+      "impressions": "11",
+      "ctr": "0%",
+      "position": "8.8"
+    },
+    {
+      "query": "pdfcraft linux pdf editor",
+      "clicks": "0",
+      "impressions": "8",
+      "ctr": "0%",
+      "position": "9.4"
+    },
+    {
+      "query": "pdfcraft github",
+      "clicks": "0",
+      "impressions": "7",
+      "ctr": "0%",
+      "position": "6.3"
+    },
+    {
+      "query": "how to use pdfcraft",
+      "clicks": "0",
+      "impressions": "7",
+      "ctr": "0%",
+      "position": "6.6"
+    },
+    {
+      "query": "is pdfcraft legal",
+      "clicks": "0",
+      "impressions": "7",
+      "ctr": "0%",
+      "position": "9.0"
+    },
+    {
+      "query": "pdfcraft web",
+      "clicks": "0",
+      "impressions": "7",
+      "ctr": "0%",
+      "position": "10.7"
+    },
+    {
+      "query": "pdf craft vs adobe acrobat",
+      "clicks": "0",
+      "impressions": "6",
+      "ctr": "0%",
+      "position": "5.0"
+    },
+    {
+      "query": "artcraft pdf editor",
+      "clicks": "0",
+      "impressions": "6",
+      "ctr": "0%",
+      "position": "8.3"
+    },
+    {
+      "query": "pdfcraft vs acrobat",
+      "clicks": "0",
+      "impressions": "6",
+      "ctr": "0%",
+      "position": "8.8"
+    },
+    {
+      "query": "pdf craft",
+      "clicks": "0",
+      "impressions": "6",
+      "ctr": "0%",
+      "position": "57.3"
+    },
+    {
+      "query": "pdf craft mac",
+      "clicks": "0",
+      "impressions": "4",
+      "ctr": "0%",
+      "position": "6.3"
+    },
+    {
+      "query": "pdfcraft linux mint",
+      "clicks": "0",
+      "impressions": "4",
+      "ctr": "0%",
+      "position": "6.8"
+    },
+    {
+      "query": "pdfcraft vs adobe acrobat",
+      "clicks": "0",
+      "impressions": "4",
+      "ctr": "0%",
+      "position": "7.0"
+    },
+    {
+      "query": "pdf craft linux",
+      "clicks": "0",
+      "impressions": "4",
+      "ctr": "0%",
+      "position": "8.0"
+    },
+    {
+      "query": "pdfcraft cli",
+      "clicks": "0",
+      "impressions": "4",
+      "ctr": "0%",
+      "position": "8.5"
+    },
+    {
+      "query": "pdfcrat",
+      "clicks": "0",
+      "impressions": "3",
+      "ctr": "0%",
+      "position": "7.3"
+    },
+    {
+      "query": "pdfcraft-<ver>-windows-x64.msi",
+      "clicks": "0",
+      "impressions": "3",
+      "ctr": "0%",
+      "position": "7.7"
+    },
+    {
+      "query": "pdfcraft vs adobe acrobat pro",
+      "clicks": "0",
+      "impressions": "3",
+      "ctr": "0%",
+      "position": "8.0"
+    },
+    {
+      "query": "adobe acrobat vs pdfcraft",
+      "clicks": "0",
+      "impressions": "3",
+      "ctr": "0%",
+      "position": "8.7"
+    },
+    {
+      "query": "pdfcrafttool",
+      "clicks": "0",
+      "impressions": "3",
+      "ctr": "0%",
+      "position": "31.0"
+    },
+    {
+      "query": "git clone https://github.com/pdfcrafttool/pdfcraft.git cd pdfcraft",
+      "clicks": "0",
+      "impressions": "2",
+      "ctr": "0%",
+      "position": "4.0"
+    },
+    {
+      "query": "pdfcraft update",
+      "clicks": "0",
+      "impressions": "2",
+      "ctr": "0%",
+      "position": "6.0"
+    },
+    {
+      "query": "pdfcraft roadmap",
+      "clicks": "0",
+      "impressions": "2",
+      "ctr": "0%",
+      "position": "7.0"
+    },
+    {
+      "query": "download pdfcraft",
+      "clicks": "0",
+      "impressions": "2",
+      "ctr": "0%",
+      "position": "7.5"
+    },
+    {
+      "query": "pdfcraft flatpak",
+      "clicks": "0",
+      "impressions": "2",
+      "ctr": "0%",
+      "position": "7.5"
+    },
+    {
+      "query": "artcraft pdf download",
+      "clicks": "0",
+      "impressions": "2",
+      "ctr": "0%",
+      "position": "8.0"
+    },
+    {
+      "query": "how good is pdf craft",
+      "clicks": "0",
+      "impressions": "2",
+      "ctr": "0%",
+      "position": "8.0"
+    },
+    {
+      "query": "pdfcraft vs acrobat pro",
+      "clicks": "0",
+      "impressions": "2",
+      "ctr": "0%",
+      "position": "8.0"
+    },
+    {
+      "query": "pdfcraft vs adobe reader",
+      "clicks": "0",
+      "impressions": "2",
+      "ctr": "0%",
+      "position": "8.0"
+    },
+    {
+      "query": "pdfcraft for windows",
+      "clicks": "0",
+      "impressions": "2",
+      "ctr": "0%",
+      "position": "8.5"
+    },
+    {
+      "query": "pdf craft windows",
+      "clicks": "0",
+      "impressions": "2",
+      "ctr": "0%",
+      "position": "9.5"
+    },
+    {
+      "query": "pdfcraft review",
+      "clicks": "0",
+      "impressions": "2",
+      "ctr": "0%",
+      "position": "46.0"
+    },
+    {
+      "query": "pdfcraft docker",
+      "clicks": "0",
+      "impressions": "2",
+      "ctr": "0%",
+      "position": "80.5"
+    },
+    {
+      "query": "pdf craft open source",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "1.0"
+    },
+    {
+      "query": "اريد تنزيله",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "1.0"
+    },
+    {
+      "query": "pdfartcraft",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "5.0"
+    },
+    {
+      "query": "pdfcraft web version",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "6.0"
+    },
+    {
+      "query": "acrobat craft",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "7.0"
+    },
+    {
+      "query": "pdfcraft app",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "7.0"
+    },
+    {
+      "query": "adobe pdf craft",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "8.0"
+    },
+    {
+      "query": "artcraft pdfcraft",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "8.0"
+    },
+    {
+      "query": "opencraft pdf",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "8.0"
+    },
+    {
+      "query": "artcraft pdf edit",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "9.0"
+    },
+    {
+      "query": "pdfcraft arch linux",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "9.0"
+    },
+    {
+      "query": "pdfcraft browser",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "9.0"
+    },
+    {
+      "query": "adobecraft",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "10.0"
+    },
+    {
+      "query": "crafpdf",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "10.0"
+    },
+    {
+      "query": "pdf craft github",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "10.0"
+    },
+    {
+      "query": "pdfcraft mac download",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "10.0"
+    },
+    {
+      "query": "pdfcraft for mac",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "11.0"
+    },
+    {
+      "query": "pdfctaft",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "14.0"
+    },
+    {
+      "query": "pdfcraft for ios",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "18.0"
+    },
+    {
+      "query": "adobe acrobat craft",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "29.0"
+    },
+    {
+      "query": "pdf craft review",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "36.0"
+    },
+    {
+      "query": "pdf-craft",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "61.0"
+    },
+    {
+      "query": "is pdfcraft good",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "70.0"
+    },
+    {
+      "query": "pdfcraft download",
+      "clicks": "0",
+      "impressions": "1",
+      "ctr": "0%",
+      "position": "70.0"
+    }
+  ]
+}

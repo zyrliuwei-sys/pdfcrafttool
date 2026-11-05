@@ -1,12 +1,13 @@
 import { createFileRoute } from '@tanstack/react-router';
 
 import { envConfigs } from '@/config';
+import { pageHead } from '@/lib/seo';
 import { m } from '@/paraglide/messages.js';
-import { getLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
+import { getLocale } from '@/paraglide/runtime.js';
 import { Footer } from '@/blocks/footer';
 import { Header } from '@/blocks/header';
 import { BlogCard } from '@/components/blog-card';
-import { formatPostDate } from '@/content/posts';
+import { formatPostDate } from '@/content/posts/catalog';
 import { getBlogPostsFn } from '@/content/posts/server';
 
 export const Route = createFileRoute('/blog/')({
@@ -16,32 +17,21 @@ export const Route = createFileRoute('/blog/')({
     return { locale, posts };
   },
   head: ({ loaderData }) => {
-    const locale = loaderData?.locale;
-    const hasPublishedPosts = loaderData?.posts.some(
-      (post) => post.source === 'db'
-    );
-    const urlFor = (loc: string) =>
-      localizeUrl(`${envConfigs.app_url}/blog`, { locale: loc as any }).href;
+    if (!loaderData) return {};
+    const { locale, posts } = loaderData;
+    const head = pageHead({
+      title: `${m['blog.title']({}, { locale })} | ${envConfigs.app_name}`,
+      description: m['blog.description']({}, { locale }),
+      path: '/blog',
+      locale,
+    });
     return {
+      ...head,
       meta: [
-        {
-          title: `${m['blog.title']({}, { locale: locale as any })} | ${envConfigs.app_name}`,
-        },
-        {
-          name: 'description',
-          content: m['blog.description']({}, { locale: locale as any }),
-        },
-        ...(!hasPublishedPosts
-          ? [{ name: 'robots', content: 'noindex,follow' }]
-          : []),
-      ],
-      links: [
-        { rel: 'canonical', href: urlFor(locale ?? 'en') },
-        ...locales.map((loc) => ({
-          rel: 'alternate',
-          hrefLang: loc,
-          href: urlFor(loc),
-        })),
+        ...head.meta,
+        ...(posts.length
+          ? []
+          : [{ name: 'robots', content: 'noindex,follow' }]),
       ],
     };
   },
@@ -57,7 +47,7 @@ function BlogPage() {
       <main className="flex-1 px-4 py-16 sm:py-24">
         <div className="mx-auto max-w-5xl">
           <div className="mb-16 text-center">
-            <h1 className="font-serif text-4xl font-normal tracking-tight sm:text-5xl">
+            <h1 className="font-display text-4xl font-medium tracking-tight sm:text-5xl">
               {m['blog.title']()}
             </h1>
             <p className="text-muted-foreground mx-auto mt-5 max-w-lg">
@@ -69,7 +59,7 @@ function BlogPage() {
               {m['blog.no_posts']()}
             </p>
           ) : (
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-2">
               {posts.map((post) => (
                 <BlogCard
                   key={post.slug}

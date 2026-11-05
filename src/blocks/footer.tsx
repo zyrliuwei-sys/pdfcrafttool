@@ -23,6 +23,7 @@ export function Footer() {
     {
       title: m['pc.footer.resources'](),
       links: [
+        { label: m['blog.title'](), href: '/blog' },
         { label: m['pc.footer.official'](), href: PDFCRAFT_OFFICIAL },
         { label: m['pc.footer.github'](), href: PDFCRAFT_REPO },
         { label: m['pc.footer.releases'](), href: PDFCRAFT_RELEASES },

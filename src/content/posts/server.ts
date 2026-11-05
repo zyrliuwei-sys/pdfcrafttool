@@ -2,11 +2,10 @@ import { createServerFn } from '@tanstack/react-start';
 
 import {
   getLocalPosts,
-  loadLocalPost,
   mergePosts,
   type BlogPost,
   type BlogPostDetail,
-} from './index';
+} from './catalog';
 
 // Database access stays behind server functions (dynamic import keeps
 // drizzle out of the client bundle), mirroring the analytics pattern.
@@ -72,17 +71,7 @@ export const getBlogPostFn = createServerFn()
       // Database not configured/reachable — fall through to local posts.
     }
 
-    const mod = loadLocalPost(data.slug, data.locale);
-    if (!mod) return null;
-    const meta = mod.meta;
-    return {
-      slug: data.slug,
-      title: meta.title,
-      description: meta.description,
-      image: meta.image,
-      createdAt: new Date(meta.created_at).toISOString(),
-      authorName: meta.author_name,
-      authorImage: meta.author_image,
-      source: 'local',
-    };
+    return (
+      getLocalPosts(data.locale).find((post) => post.slug === data.slug) ?? null
+    );
   });

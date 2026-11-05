@@ -56,7 +56,10 @@ export function SiteFooter({
             )}
           >
             {columns.map((col) => (
-              <div key={col.title} className="space-y-5">
+              <div
+                key={col.title}
+                className="min-w-0 space-y-5 [overflow-wrap:anywhere]"
+              >
                 <p className="text-foreground text-[13px] font-semibold tracking-wide">
                   {col.title}
                 </p>

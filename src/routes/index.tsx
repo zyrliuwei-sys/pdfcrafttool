@@ -10,6 +10,7 @@ import { Facts } from '@/blocks/facts';
 import { FAQ, faqItems } from '@/blocks/faq';
 import { Features } from '@/blocks/features';
 import { Footer } from '@/blocks/footer';
+import { GuideHighlights } from '@/blocks/guide-highlights';
 import { Header } from '@/blocks/header';
 import { Hero } from '@/blocks/hero';
 import { Platforms } from '@/blocks/platforms';
@@ -56,6 +57,7 @@ function HomePage() {
         <CompareTeaser />
         <Start />
         <Who />
+        <GuideHighlights />
         <FAQ />
         <CTA />
       </main>

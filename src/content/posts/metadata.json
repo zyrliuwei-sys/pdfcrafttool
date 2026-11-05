@@ -1,0 +1,66 @@
+{
+  "pdfcraft-windows-installation.en": {
+    "title": "PdfCraft for Windows: Installer and Portable Setup",
+    "description": "Choose the right PdfCraft Windows download, compare MSI and portable ZIP builds, verify the file and complete a first-run PDF check.",
+    "created_at": "2026-11-05",
+    "image": "/imgs/pdfcraft/palette-1600.webp",
+    "image_alt": "PdfCraft command palette listing tools and commands over an open PDF",
+    "image_caption": "After setup, search for a tool by name. The project showcase illustrates the interface; window styling varies by operating system."
+  },
+  "pdfcraft-linux-installation.en": {
+    "title": "PdfCraft on Linux: Ubuntu, Mint, Flatpak and AppImage",
+    "description": "Install PdfCraft on Linux with a suitable package, check CPU architecture, run Flatpak or AppImage builds and troubleshoot first-launch issues.",
+    "created_at": "2026-11-05",
+    "image": "/imgs/pdfcraft/dark-1600.webp",
+    "image_alt": "PdfCraft project showcase in dark theme with a PDF and comments panel",
+    "image_caption": "The desktop workflow is shared across platforms; the showcase window and your Linux desktop may look different."
+  },
+  "pdfcraft-tutorial-beginners.zh": {
+    "title": "PdfCraft 入门教程：完成第一份 PDF 整理工作",
+    "description": "从打开文件、搜索文字到整理页面、合并附件和检查导出结果，跟着实例学会使用 PdfCraft，并避开常见的新手问题。",
+    "created_at": "2026-11-05",
+    "image": "/imgs/pdfcraft/viewer-1600.webp",
+    "image_alt": "PdfCraft 项目示例：打开 PDF 后的全部工具侧栏和评论面板",
+    "image_caption": "先用一份较小的 PDF 副本练习，方便将保存后的结果与原件比较。"
+  },
+  "switch-from-adobe-acrobat-to-pdfcraft.en": {
+    "title": "PdfCraft vs Adobe Acrobat: A Practical Migration Guide",
+    "description": "Compare PdfCraft and Adobe Acrobat using your real documents. Test page tools, forms, text, scans and saved outputs before moving your PDF workflow.",
+    "created_at": "2026-11-05",
+    "image": "/imgs/pdfcraft/forms-1600.webp",
+    "image_alt": "Interactive form fields and field list in the upstream PdfCraft showcase",
+    "image_caption": "Forms are a useful migration test: a document that looks correct still needs its field values and behavior checked."
+  },
+  "pdfcraft-tutorial-beginners.en": {
+    "title": "PdfCraft Tutorial: Your First PDF Workflow",
+    "description": "Learn how to use PdfCraft to find text, organize pages, combine documents and check your saved PDF, with a practical first-project walkthrough.",
+    "created_at": "2026-11-05",
+    "image": "/imgs/pdfcraft/viewer-1600.webp",
+    "image_alt": "PdfCraft project showcase with a PDF open, the All tools sidebar and threaded comments",
+    "image_caption": "Start with a copy of a small PDF so you can compare the saved result with the original."
+  },
+  "switch-from-adobe-acrobat-to-pdfcraft.zh": {
+    "title": "PdfCraft 与 Adobe Acrobat 对比：实际工作流迁移指南",
+    "description": "用自己的 PDF 对比页面整理、表单、扫描件、文字编辑和保存结果，逐项判断哪些 Adobe Acrobat 工作可以迁移到 PdfCraft。",
+    "created_at": "2026-11-05",
+    "image": "/imgs/pdfcraft/forms-1600.webp",
+    "image_alt": "上游 PdfCraft 项目示例中的交互表单与字段列表",
+    "image_caption": "表单是很好的迁移测试样本：外观正确之外，还要检查字段值是否保存、交互是否符合预期。"
+  },
+  "pdfcraft-windows-installation.zh": {
+    "title": "Windows 安装 PdfCraft：安装包与便携版完整指南",
+    "description": "分清 x64、ARM64 和 x86 下载，选择 MSI 或便携 ZIP，验证文件并完成首次运行检查，解决 Windows 上的常见安装问题。",
+    "created_at": "2026-11-05",
+    "image": "/imgs/pdfcraft/palette-1600.webp",
+    "image_alt": "PdfCraft 命令面板显示可搜索的工具和命令",
+    "image_caption": "安装后可按名称搜索工具。截图来自项目展示，实际窗口外观随操作系统而变化。"
+  },
+  "pdfcraft-linux-installation.zh": {
+    "title": "Linux 安装 PdfCraft：Ubuntu、Mint、Flatpak 与 AppImage",
+    "description": "按发行版和 CPU 架构选择 PdfCraft 安装方式，了解 deb、Flatpak、AppImage 的具体步骤与首次启动、文件权限和更新排查。",
+    "created_at": "2026-11-05",
+    "image": "/imgs/pdfcraft/dark-1600.webp",
+    "image_alt": "PdfCraft 项目深色主题展示，包含 PDF 页面与评论面板",
+    "image_caption": "各平台共享主要文档工作流，展示图的窗口外观可能与实际 Linux 桌面不同。"
+  }
+}

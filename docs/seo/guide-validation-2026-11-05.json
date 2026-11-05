@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "path": "/blog/pdfcraft-windows-installation",
+      "status": 200,
+      "images": 3,
+      "h1": 1,
+      "canonical": "https://pdfcrafttool.org/blog/pdfcraft-windows-installation"
+    },
+    {
+      "path": "/zh/blog/pdfcraft-windows-installation",
+      "status": 200,
+      "images": 3,
+      "h1": 1,
+      "canonical": "https://pdfcrafttool.org/zh/blog/pdfcraft-windows-installation"
+    },
+    {
+      "path": "/blog/pdfcraft-linux-installation",
+      "status": 200,
+      "images": 3,
+      "h1": 1,
+      "canonical": "https://pdfcrafttool.org/blog/pdfcraft-linux-installation"
+    },
+    {
+      "path": "/zh/blog/pdfcraft-linux-installation",
+      "status": 200,
+      "images": 3,
+      "h1": 1,
+      "canonical": "https://pdfcrafttool.org/zh/blog/pdfcraft-linux-installation"
+    },
+    {
+      "path": "/blog/pdfcraft-tutorial-beginners",
+      "status": 200,
+      "images": 3,
+      "h1": 1,
+      "canonical": "https://pdfcrafttool.org/blog/pdfcraft-tutorial-beginners"
+    },
+    {
+      "path": "/zh/blog/pdfcraft-tutorial-beginners",
+      "status": 200,
+      "images": 3,
+      "h1": 1,
+      "canonical": "https://pdfcrafttool.org/zh/blog/pdfcraft-tutorial-beginners"
+    },
+    {
+      "path": "/blog/switch-from-adobe-acrobat-to-pdfcraft",
+      "status": 200,
+      "images": 3,
+      "h1": 1,
+      "canonical": "https://pdfcrafttool.org/blog/switch-from-adobe-acrobat-to-pdfcraft"
+    },
+    {
+      "path": "/zh/blog/switch-from-adobe-acrobat-to-pdfcraft",
+      "status": 200,
+      "images": 3,
+      "h1": 1,
+      "canonical": "https://pdfcrafttool.org/zh/blog/switch-from-adobe-acrobat-to-pdfcraft"
+    }
+  ],
+  "sitemapLocations": 28,
+  "homepageAndBlog": "passed",
+  "checks": {
+    "productionBuild": "passed",
+    "typescript": "passed",
+    "articleWidth390": "all 8 locale pages fit without horizontal document overflow",
+    "localizedHomeReturn": "verified after hydration",
+    "screenshotsPerArticle": 3,
+    "deployed": false
+  }
+}
