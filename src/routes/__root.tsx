@@ -15,6 +15,7 @@ import schibstedLatinUrl from '@fontsource-variable/schibsted-grotesk/files/schi
 import { ThemeProvider } from 'next-themes';
 
 import { envConfigs } from '@/config';
+import { adsensePublisherId } from '@/config/adsense';
 import { getQueryClient } from '@/lib/query-client';
 import { m } from '@/paraglide/messages.js';
 import { getLocale } from '@/paraglide/runtime.js';
@@ -47,7 +48,7 @@ const getAnalyticsConfigs = createServerFn().handler(async () => {
     plausibleDomain: configs.plausible_domain?.trim() || '',
     plausibleSrc: configs.plausible_src?.trim() || '',
     clarityProjectId: configs.clarity_project_id?.trim() || '',
-    adsenseCode: configs.adsense_code?.trim() || '',
+    adsenseCode: `ca-${adsensePublisherId(configs.adsense_code)}`,
     crispWebsiteId:
       configs.crisp_enabled === 'true'
         ? configs.crisp_website_id?.trim() || ''

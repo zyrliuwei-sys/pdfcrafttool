@@ -1,0 +1,15 @@
+[
+  {
+    "tool": "doc_open",
+    "args": {
+      "path": "layout-source.pdf"
+    }
+  },
+  {
+    "tool": "doc_export_office",
+    "args": {
+      "doc": 1,
+      "path": "layout-export.docx"
+    }
+  }
+]

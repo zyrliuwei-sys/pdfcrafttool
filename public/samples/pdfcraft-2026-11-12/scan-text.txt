@@ -1,0 +1,11 @@
+SCAN TO TEXT TEST
+Reference: SCAN-108B
+Invoice date: 12 November 2026
+Item: Paper folders
+Quantity: 12
+Unit price: 4.50 USD
+Total due: 54.00 USD
+Please retain this page for your records.
+Synthetic sample PDFCraftTool.org 12 November 2026
+-
+-

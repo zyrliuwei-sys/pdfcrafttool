@@ -1,0 +1,54 @@
+[
+  {
+    "tool": "doc_open",
+    "args": {
+      "path": "form-blank.pdf"
+    }
+  },
+  {
+    "tool": "form_fields",
+    "args": {
+      "doc": 1
+    }
+  },
+  {
+    "tool": "form_fill",
+    "args": {
+      "doc": 1,
+      "values": {
+        "full_name": "Alex Example",
+        "reference": "FORM-108B",
+        "approved": true
+      }
+    }
+  },
+  {
+    "tool": "fill_sign_add",
+    "args": {
+      "doc": 1,
+      "page": 1,
+      "type": "signature",
+      "at": [45, 478],
+      "text": "Alex Example"
+    }
+  },
+  {
+    "tool": "doc_save",
+    "args": {
+      "doc": 1,
+      "path": "form-completed.pdf"
+    }
+  },
+  {
+    "tool": "doc_open",
+    "args": {
+      "path": "form-completed.pdf"
+    }
+  },
+  {
+    "tool": "form_fields",
+    "args": {
+      "doc": 2
+    }
+  }
+]

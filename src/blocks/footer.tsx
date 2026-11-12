@@ -5,6 +5,7 @@ import {
   PDFCRAFT_REPO,
 } from '@/config/pdfcraft';
 import { m } from '@/paraglide/messages.js';
+import { getLocale } from '@/paraglide/runtime.js';
 import { FooterBadgeList } from '@/components/footer-badge-list';
 import { SiteFooter, type FooterColumn } from '@/components/site-footer';
 
@@ -34,6 +35,9 @@ export function Footer() {
       title: m['pc.footer.company'](),
       links: [
         { label: m['pc.footer.about'](), href: '/about' },
+        ...(getLocale() === 'en'
+          ? [{ label: m['pc.footer.contact'](), href: '/contact' }]
+          : []),
         {
           label: 'support@pdfcrafttool.org',
           href: 'mailto:support@pdfcrafttool.org',

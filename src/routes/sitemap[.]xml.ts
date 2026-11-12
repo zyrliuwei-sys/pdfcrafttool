@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 
 import { envConfigs } from '@/config';
 import { baseLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
-import { getLocalPosts } from '@/content/posts/catalog';
+import { getLocalPosts, getPostLocales } from '@/content/posts/catalog';
 
 const STATIC_PATHS = [
   '',
@@ -19,6 +19,7 @@ const STATIC_PATHS = [
 
 type Entry = {
   path: string;
+  availableLocales?: readonly string[];
   lastModified?: string;
   changeFrequency: string;
   priority: number;
@@ -34,14 +35,15 @@ function urlFor(path: string, locale: string): string {
 // recommended hreflang form) — so /zh pages are real <loc>s that crawlers and
 // the IndexNow sitemap submit pick up, not just alternates of the en page.
 function entryXml(e: Entry): string {
+  const entryLocales = e.availableLocales ?? locales;
   const alternates = [
-    ...locales.map(
+    ...entryLocales.map(
       (loc) =>
         `    <xhtml:link rel="alternate" hreflang="${loc}" href="${urlFor(e.path, loc)}"/>`
     ),
     `    <xhtml:link rel="alternate" hreflang="x-default" href="${urlFor(e.path, baseLocale)}"/>`,
   ].join('\n');
-  return locales
+  return entryLocales
     .map((loc) =>
       [
         '  <url>',
@@ -69,9 +71,16 @@ export const Route = createFileRoute('/sitemap.xml')({
         }));
 
         const localPosts = getLocalPosts(baseLocale);
+        entries.push({
+          path: '/contact',
+          availableLocales: ['en'],
+          changeFrequency: 'monthly',
+          priority: 0.5,
+        });
         for (const post of localPosts) {
           entries.push({
             path: `/blog/${post.slug}`,
+            availableLocales: getPostLocales(post.slug),
             lastModified: post.createdAt,
             changeFrequency: 'monthly',
             priority: 0.7,

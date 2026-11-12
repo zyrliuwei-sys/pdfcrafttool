@@ -1,0 +1,40 @@
+{
+  "ok": false,
+  "steps": [
+    {
+      "result": [
+        {
+          "dirty": false,
+          "doc": 1,
+          "editable": true,
+          "encrypted": false,
+          "name": "scan-image-only.pdf",
+          "pages": 1,
+          "path": "scan-image-only.pdf",
+          "read_only_reason": null,
+          "redo": null,
+          "undo": null
+        }
+      ],
+      "status": "ok",
+      "step": 1,
+      "tool": "doc_open"
+    },
+    {
+      "error": "step 2 (ocr_recognize): the text recognition models are not installed (reinstall PdfCraft, or set PDFCRAFT_MODELS to the folder that holds them)",
+      "status": "error",
+      "step": 2,
+      "tool": "ocr_recognize"
+    },
+    {
+      "status": "skipped",
+      "step": 3,
+      "tool": "doc_save"
+    },
+    {
+      "status": "skipped",
+      "step": 4,
+      "tool": "doc_export_text"
+    }
+  ]
+}

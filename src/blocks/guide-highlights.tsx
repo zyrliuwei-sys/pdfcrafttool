@@ -6,7 +6,7 @@ import { getLocale } from '@/paraglide/runtime.js';
 import { getLocalPosts } from '@/content/posts/catalog';
 
 export function GuideHighlights() {
-  const guides = getLocalPosts(getLocale());
+  const guides = getLocalPosts(getLocale()).slice(0, 4);
   return (
     <section
       id="guides"

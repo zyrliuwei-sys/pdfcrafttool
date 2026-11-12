@@ -13,7 +13,7 @@ import { Header } from '@/blocks/header';
 import { RelatedGuides } from '@/blocks/related-guides';
 import { MarkdownContent } from '@/components/markdown-content';
 import { mdxComponents } from '@/components/mdx-components';
-import { formatPostDate, loadLocalPost } from '@/content/posts';
+import { formatPostDate, getPostLocales, loadLocalPost } from '@/content/posts';
 import { getBlogPostFn } from '@/content/posts/server';
 
 export const Route = createFileRoute('/blog/$slug')({
@@ -35,6 +35,8 @@ export const Route = createFileRoute('/blog/$slug')({
       description: post.description,
       path: `/blog/${post.slug}`,
       locale,
+      availableLocales:
+        post.source === 'local' ? getPostLocales(post.slug) : undefined,
     });
     const article = {
       '@context': 'https://schema.org',
@@ -186,7 +188,7 @@ function BlogPostPage() {
           ) : (
             <MarkdownContent content={post.content || ''} />
           )}
-          {LocalContent && (
+          {LocalContent && isShowcaseImage && (
             <p className="text-muted-foreground border-border mt-10 border-t pt-5 text-sm leading-relaxed">
               {m['guides.image_note']()}{' '}
               <a href={PDFCRAFT_REPO} className="underline underline-offset-4">

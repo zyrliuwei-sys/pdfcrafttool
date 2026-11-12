@@ -1,0 +1,208 @@
+{
+  "ok": true,
+  "steps": [
+    {
+      "result": [
+        {
+          "dirty": false,
+          "doc": 1,
+          "editable": true,
+          "encrypted": false,
+          "name": "form-blank.pdf",
+          "pages": 1,
+          "path": "form-blank.pdf",
+          "read_only_reason": null,
+          "redo": null,
+          "undo": null
+        }
+      ],
+      "status": "ok",
+      "step": 1,
+      "tool": "doc_open"
+    },
+    {
+      "result": [
+        {
+          "count": 3,
+          "fields": [
+            {
+              "field_id": 458752,
+              "max_length": 100,
+              "multiline": false,
+              "name": "full_name",
+              "page": 1,
+              "read_only": false,
+              "rect": [42.0, 194.0, 422.0, 222.0],
+              "required": false,
+              "rotation": 0,
+              "type": "text",
+              "value": null
+            },
+            {
+              "field_id": 655360,
+              "max_length": 100,
+              "multiline": false,
+              "name": "reference",
+              "page": 1,
+              "read_only": false,
+              "rect": [42.0, 274.0, 422.0, 302.0],
+              "required": false,
+              "rotation": 0,
+              "type": "text",
+              "value": null
+            },
+            {
+              "check_style": "check",
+              "export_values": ["Yes"],
+              "field_id": 1114112,
+              "name": "approved",
+              "page": 1,
+              "read_only": false,
+              "rect": [42.0, 344.0, 60.0, 362.0],
+              "required": true,
+              "rotation": 0,
+              "type": "checkbox",
+              "value": false
+            }
+          ]
+        }
+      ],
+      "status": "ok",
+      "step": 2,
+      "tool": "form_fields"
+    },
+    {
+      "result": [
+        {
+          "dirty": true,
+          "doc": 1,
+          "editable": true,
+          "encrypted": false,
+          "filled": 3,
+          "name": "form-blank.pdf",
+          "pages": 1,
+          "path": "form-blank.pdf",
+          "read_only_reason": null,
+          "redo": null,
+          "undo": "Fill in form"
+        }
+      ],
+      "status": "ok",
+      "step": 3,
+      "tool": "form_fill"
+    },
+    {
+      "result": [
+        {
+          "dirty": true,
+          "doc": 1,
+          "editable": true,
+          "encrypted": false,
+          "name": "form-blank.pdf",
+          "pages": 1,
+          "path": "form-blank.pdf",
+          "read_only_reason": null,
+          "redo": null,
+          "undo": "Add signature"
+        }
+      ],
+      "status": "ok",
+      "step": 4,
+      "tool": "fill_sign_add"
+    },
+    {
+      "result": [
+        {
+          "bytes": 72847,
+          "document": {
+            "dirty": false,
+            "doc": 1,
+            "editable": true,
+            "encrypted": false,
+            "name": "form-completed.pdf",
+            "pages": 1,
+            "path": "form-completed.pdf",
+            "read_only_reason": null,
+            "redo": null,
+            "undo": "Add signature"
+          },
+          "incremental": false,
+          "path": "form-completed.pdf"
+        }
+      ],
+      "status": "ok",
+      "step": 5,
+      "tool": "doc_save"
+    },
+    {
+      "result": [
+        {
+          "dirty": false,
+          "doc": 2,
+          "editable": true,
+          "encrypted": false,
+          "name": "form-completed.pdf",
+          "pages": 1,
+          "path": "form-completed.pdf",
+          "read_only_reason": null,
+          "redo": null,
+          "undo": null
+        }
+      ],
+      "status": "ok",
+      "step": 6,
+      "tool": "doc_open"
+    },
+    {
+      "result": [
+        {
+          "count": 3,
+          "fields": [
+            {
+              "field_id": 458752,
+              "max_length": 100,
+              "multiline": false,
+              "name": "full_name",
+              "page": 1,
+              "read_only": false,
+              "rect": [42.0, 194.0, 422.0, 222.0],
+              "required": false,
+              "rotation": 0,
+              "type": "text",
+              "value": "Alex Example"
+            },
+            {
+              "field_id": 524288,
+              "max_length": 100,
+              "multiline": false,
+              "name": "reference",
+              "page": 1,
+              "read_only": false,
+              "rect": [42.0, 274.0, 422.0, 302.0],
+              "required": false,
+              "rotation": 0,
+              "type": "text",
+              "value": "FORM-108B"
+            },
+            {
+              "check_style": "check",
+              "export_values": ["Yes"],
+              "field_id": 589824,
+              "name": "approved",
+              "page": 1,
+              "read_only": false,
+              "rect": [42.0, 344.0, 60.0, 362.0],
+              "required": true,
+              "rotation": 0,
+              "type": "checkbox",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "status": "ok",
+      "step": 7,
+      "tool": "form_fields"
+    }
+  ]
+}

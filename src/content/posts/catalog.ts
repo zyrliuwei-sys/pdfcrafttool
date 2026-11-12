@@ -1,5 +1,3 @@
-import { baseLocale } from '@/paraglide/runtime.js';
-
 import postMetadata from './metadata.json';
 
 // Only published project guides belong in the homepage, blog and sitemap.
@@ -8,6 +6,9 @@ export const BLOG_POST_SLUGS = [
   'switch-from-adobe-acrobat-to-pdfcraft',
   'pdfcraft-windows-installation',
   'pdfcraft-linux-installation',
+  'pdfcraft-ocr-scanned-pdf',
+  'pdfcraft-fill-sign-pdf-test',
+  'pdfcraft-pdf-to-word-layout',
 ] as const;
 
 export type BlogPostMeta = {
@@ -40,10 +41,15 @@ export type BlogPostDetail = BlogPost & { content?: string };
 // groups their component exports into a shared client chunk in production.
 const metadata: Record<string, BlogPostMeta> = postMetadata;
 
+export function getPostLocales(slug: string): ('en' | 'zh')[] {
+  return (['en', 'zh'] as const).filter(
+    (locale) => metadata[`${slug}.${locale}`]
+  );
+}
+
 export function getLocalPosts(locale: string): BlogPost[] {
   return BLOG_POST_SLUGS.flatMap((slug) => {
-    const meta =
-      metadata[`${slug}.${locale}`] ?? metadata[`${slug}.${baseLocale}`];
+    const meta = metadata[`${slug}.${locale}`];
     if (!meta) return [];
     return [
       {

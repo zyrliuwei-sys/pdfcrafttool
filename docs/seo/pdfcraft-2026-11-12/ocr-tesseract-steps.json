@@ -1,0 +1,31 @@
+[
+  {
+    "tool": "doc_open",
+    "args": {
+      "path": "scan-image-only.pdf"
+    }
+  },
+  {
+    "tool": "ocr_recognize",
+    "args": {
+      "doc": 1,
+      "engine": "tesseract",
+      "language": "en",
+      "dpi": 200
+    }
+  },
+  {
+    "tool": "doc_save",
+    "args": {
+      "doc": 1,
+      "path": "scan-searchable.pdf"
+    }
+  },
+  {
+    "tool": "doc_export_text",
+    "args": {
+      "doc": 1,
+      "path": "scan-text.txt"
+    }
+  }
+]

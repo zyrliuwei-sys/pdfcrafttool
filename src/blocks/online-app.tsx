@@ -2,7 +2,7 @@ import { Download, Maximize2, MonitorDown, ShieldCheck } from 'lucide-react';
 
 import { Link } from '@/core/i18n/navigation';
 import { envConfigs } from '@/config';
-import { DOWNLOADS, PDFCRAFT_VERSION } from '@/config/pdfcraft';
+import { DOWNLOADS } from '@/config/pdfcraft';
 import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
 import { FaqSection } from '@/components/faq-section';
@@ -17,7 +17,7 @@ export function onlineFaqItems() {
     { q: m['pc.online.faq.q2'](), a: m['pc.online.faq.a2']() },
     {
       q: m['pc.online.faq.q3'](),
-      a: m['pc.online.faq.a3']({ version: PDFCRAFT_VERSION }),
+      a: m['pc.online.faq.a3'](),
     },
     { q: m['pc.online.faq.q4'](), a: m['pc.online.faq.a4']() },
     { q: m['pc.online.faq.q5'](), a: m['pc.online.faq.a5']() },
@@ -77,7 +77,7 @@ export function OnlineApp() {
       },
       {
         label: m['pc.online.cmp.version'](),
-        web: m['pc.online.cmp.version.web']({ version: PDFCRAFT_VERSION }),
+        web: m['pc.online.cmp.version.web'](),
         desktop: m['pc.online.cmp.version.desktop'](),
       },
     ];
@@ -326,7 +326,7 @@ export function OnlineApp() {
               {m['pc.online.about_title']()}
             </h2>
             <p className="mt-6 text-[17px] leading-[1.75]">
-              {m['pc.online.about_p1']({ version: PDFCRAFT_VERSION })}
+              {m['pc.online.about_p1']()}
             </p>
             <p className="text-muted-foreground mt-5 text-[17px] leading-[1.75]">
               {m['pc.online.about_p2']()}

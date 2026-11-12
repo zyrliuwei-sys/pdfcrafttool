@@ -51,10 +51,16 @@ type LoaderData = { meta: PageMeta; slug: string; locale: string };
 // explicit route file (e.g. privacy-policy.tsx) so static segments
 // always outrank dynamic ones — add a new page by creating the MDX
 // content plus a thin route file using this factory.
-export function staticPageRouteOptions(slug: string) {
+export function staticPageRouteOptions(
+  slug: string,
+  {
+    availableLocales = locales,
+  }: { availableLocales?: readonly (typeof locales)[number][] } = {}
+) {
   return {
     loader: (): LoaderData => {
       const locale = getLocale();
+      if (!availableLocales.includes(locale)) throw notFound();
       const key = pageKey(slug, locale);
       if (!key) throw notFound();
       return { meta: metas[key], slug, locale };
@@ -77,7 +83,7 @@ export function staticPageRouteOptions(slug: string) {
         ],
         links: [
           { rel: 'canonical', href: canonical },
-          ...locales.map((loc) => ({
+          ...availableLocales.map((loc) => ({
             rel: 'alternate',
             hrefLang: loc,
             href: localizeUrl(`${envConfigs.app_url}/${slug}`, { locale: loc })

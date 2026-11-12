@@ -1,0 +1,233 @@
+{
+  "date": "2026-11-12",
+  "scope": "local production build",
+  "deployed": false,
+  "pnpmBuild": "passed",
+  "typescript": "passed",
+  "adsTxt": {
+    "status": 200,
+    "exactBody": "google.com, pub-2841223102464177, DIRECT, f08c47fec0942fa0",
+    "bytes": 58
+  },
+  "releaseVersion": "0.21.1",
+  "downloadAssetVerification": "all rendered upstream asset links occur in GitHub release manifest",
+  "sitemapUrlCount": 32,
+  "englishOnlyPaths": "Chinese contact and new article paths return 404, absent from sitemap and hreflang",
+  "homepageTitleAndH1": "unchanged",
+  "publicSignInLinks": 0,
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "title": "PdfCraft: Free Open-Source PDF Editor | Download & Online",
+      "h1": "PdfCraft is the free PDF editor you actually own."
+    },
+    {
+      "path": "/zh",
+      "status": 200,
+      "title": "PdfCraft：免费开源 PDF 编辑器 | 下载与在线使用",
+      "h1": "PdfCraft，免费开源真正属于你的 PDF 编辑器。"
+    },
+    {
+      "path": "/download",
+      "status": 200,
+      "title": "PdfCraft Download 0.21.1: Free for Windows, Mac & Linux",
+      "h1": "Download PdfCraft"
+    },
+    {
+      "path": "/zh/download",
+      "status": 200,
+      "title": "PdfCraft 下载 0.21.1：Windows、Mac、Linux 免费版",
+      "h1": "下载 PdfCraft"
+    },
+    {
+      "path": "/online",
+      "status": 200,
+      "title": "PdfCraft Online: Free PDF Editor in Your Browser",
+      "h1": "PdfCraft Online"
+    },
+    {
+      "path": "/zh/online",
+      "status": 200,
+      "title": "PdfCraft 在线版：浏览器中的免费 PDF 编辑器",
+      "h1": "PdfCraft 在线版"
+    },
+    {
+      "path": "/tutorials",
+      "status": 200,
+      "title": "PdfCraft Tutorial: How to Use PdfCraft, Step by Step",
+      "h1": "How to use PdfCraft"
+    },
+    {
+      "path": "/zh/tutorials",
+      "status": 200,
+      "title": "PdfCraft 教程：一步步学会使用 PdfCraft",
+      "h1": "如何使用 PdfCraft"
+    },
+    {
+      "path": "/pdfcraft-vs-adobe-acrobat",
+      "status": 200,
+      "title": "PdfCraft vs Adobe Acrobat (2026): Price, Features & Differences",
+      "h1": "PdfCraft vs Adobe Acrobat"
+    },
+    {
+      "path": "/zh/pdfcraft-vs-adobe-acrobat",
+      "status": 200,
+      "title": "PdfCraft 与 Adobe Acrobat 对比（2026）：价格、功能与区别",
+      "h1": "PdfCraft 对比 Adobe Acrobat"
+    },
+    {
+      "path": "/alternatives",
+      "status": 200,
+      "title": "PdfCraft Alternatives (2026): An Honest PDF Editor Comparison",
+      "h1": "PdfCraft alternatives"
+    },
+    {
+      "path": "/zh/alternatives",
+      "status": 200,
+      "title": "PdfCraft 替代方案（2026）：PDF 编辑器客观对比",
+      "h1": "PdfCraft 替代方案"
+    },
+    {
+      "path": "/privacy-policy",
+      "status": 200,
+      "title": "Privacy Policy | PDFCraftTool",
+      "h1": "Privacy Policy | PDFCraftTool"
+    },
+    {
+      "path": "/zh/privacy-policy",
+      "status": 200,
+      "title": "隐私政策 | PDFCraftTool",
+      "h1": "隐私政策 | PDFCraftTool"
+    },
+    {
+      "path": "/terms-of-service",
+      "status": 200,
+      "title": "Terms of Service | PDFCraftTool",
+      "h1": "Terms of Service | PDFCraftTool"
+    },
+    {
+      "path": "/zh/terms-of-service",
+      "status": 200,
+      "title": "服务条款 | PDFCraftTool",
+      "h1": "服务条款 | PDFCraftTool"
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "title": "About PDFCraftTool: The Independent PdfCraft Guide",
+      "h1": "About PDFCraftTool: The Independent PdfCraft Guide"
+    },
+    {
+      "path": "/zh/about",
+      "status": 200,
+      "title": "关于 PDFCraftTool：独立的 PdfCraft 指南站",
+      "h1": "关于 PDFCraftTool：独立的 PdfCraft 指南站"
+    },
+    {
+      "path": "/blog",
+      "status": 200,
+      "title": "PdfCraft Guides | PDFCraftTool.org",
+      "h1": "PdfCraft Guides"
+    },
+    {
+      "path": "/zh/blog",
+      "status": 200,
+      "title": "PdfCraft 使用指南 | PDFCraftTool.org",
+      "h1": "PdfCraft 使用指南"
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "title": "Contact PDFCraftTool.org — Corrections & Questions",
+      "h1": "Contact PDFCraftTool.org — Corrections & Questions"
+    },
+    {
+      "path": "/blog/pdfcraft-tutorial-beginners",
+      "status": 200,
+      "title": "PdfCraft Tutorial: Your First PDF Workflow | PDFCraftTool.org",
+      "h1": "PdfCraft Tutorial: Your First PDF Workflow"
+    },
+    {
+      "path": "/zh/blog/pdfcraft-tutorial-beginners",
+      "status": 200,
+      "title": "PdfCraft 入门教程：完成第一份 PDF 整理工作 | PDFCraftTool.org",
+      "h1": "PdfCraft 入门教程：完成第一份 PDF 整理工作"
+    },
+    {
+      "path": "/blog/switch-from-adobe-acrobat-to-pdfcraft",
+      "status": 200,
+      "title": "PdfCraft vs Adobe Acrobat: A Practical Migration Guide | PDFCraftTool.org",
+      "h1": "PdfCraft vs Adobe Acrobat: A Practical Migration Guide"
+    },
+    {
+      "path": "/zh/blog/switch-from-adobe-acrobat-to-pdfcraft",
+      "status": 200,
+      "title": "PdfCraft 与 Adobe Acrobat 对比：实际工作流迁移指南 | PDFCraftTool.org",
+      "h1": "PdfCraft 与 Adobe Acrobat 对比：实际工作流迁移指南"
+    },
+    {
+      "path": "/blog/pdfcraft-windows-installation",
+      "status": 200,
+      "title": "PdfCraft for Windows: Installer and Portable Setup | PDFCraftTool.org",
+      "h1": "PdfCraft for Windows: Installer and Portable Setup"
+    },
+    {
+      "path": "/zh/blog/pdfcraft-windows-installation",
+      "status": 200,
+      "title": "Windows 安装 PdfCraft：安装包与便携版完整指南 | PDFCraftTool.org",
+      "h1": "Windows 安装 PdfCraft：安装包与便携版完整指南"
+    },
+    {
+      "path": "/blog/pdfcraft-linux-installation",
+      "status": 200,
+      "title": "PdfCraft on Linux: Ubuntu, Mint, Flatpak and AppImage | PDFCraftTool.org",
+      "h1": "PdfCraft on Linux: Ubuntu, Mint, Flatpak and AppImage"
+    },
+    {
+      "path": "/zh/blog/pdfcraft-linux-installation",
+      "status": 200,
+      "title": "Linux 安装 PdfCraft：Ubuntu、Mint、Flatpak 与 AppImage | PDFCraftTool.org",
+      "h1": "Linux 安装 PdfCraft：Ubuntu、Mint、Flatpak 与 AppImage"
+    },
+    {
+      "path": "/blog/pdfcraft-ocr-scanned-pdf",
+      "status": 200,
+      "title": "OCR a Scanned PDF with PdfCraft: A Tested Text Extraction Workflow | PDFCraftTool.org",
+      "h1": "OCR a Scanned PDF with PdfCraft: A Tested Text Extraction Workflow"
+    },
+    {
+      "path": "/blog/pdfcraft-fill-sign-pdf-test",
+      "status": 200,
+      "title": "Fill and Sign a PDF with PdfCraft: What Survived Our Save Test | PDFCraftTool.org",
+      "h1": "Fill and Sign a PDF with PdfCraft: What Survived Our Save Test"
+    },
+    {
+      "path": "/blog/pdfcraft-pdf-to-word-layout",
+      "status": 200,
+      "title": "PdfCraft PDF to Word Test: Where the Layout Changed | PDFCraftTool.org",
+      "h1": "PdfCraft PDF to Word Test: Where the Layout Changed"
+    }
+  ],
+  "browser": {
+    "desktopContact": "passed visual inspection",
+    "mobileWidth": 390,
+    "mobilePaths": [
+      "/contact",
+      "/blog/pdfcraft-ocr-scanned-pdf",
+      "/blog/pdfcraft-fill-sign-pdf-test",
+      "/blog/pdfcraft-pdf-to-word-layout"
+    ],
+    "horizontalOverflow": false,
+    "mobileMenuSignInLink": false
+  },
+  "sampleDownloads": {
+    "count": 7,
+    "status": "HTTP 200 and SHA-256 content match"
+  },
+  "releaseSyncOfflineFallback": "passed",
+  "adsenseSsrHead": "publisher meta and async script verified in head",
+  "localPreviewAuth": "HTTP 200 with isolated local SQLite configuration",
+  "prettier": "passed",
+  "gitDiffCheck": "passed"
+}

@@ -12,7 +12,7 @@
 set -euo pipefail
 
 BUCKET="${1:?usage: scripts/pdfcraft-web.sh <r2-bucket> [version]}"
-VERSION="${2:-$(sed -n "s/^export const PDFCRAFT_VERSION = '\(.*\)';/\1/p" src/config/pdfcraft.ts)}"
+VERSION="${2:-$(node -p "JSON.parse(require('fs').readFileSync('src/config/pdfcraft-release.json', 'utf8')).version")}"
 BASE="https://github.com/storytold/pdfcraft/releases/download/v${VERSION}"
 ZIP="pdfcraft-web-${VERSION}.zip"
 

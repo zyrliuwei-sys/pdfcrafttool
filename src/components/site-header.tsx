@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 import { ArrowRight, Menu, X } from 'lucide-react';
 
@@ -93,15 +91,6 @@ export function SiteHeader({
           ) : (
             <>
               <Link
-                href="/sign-in"
-                className={cn(
-                  buttonVariants({ variant: 'ghost' }),
-                  'h-9 rounded-full px-4'
-                )}
-              >
-                {m['common.nav.sign_in']()}
-              </Link>
-              <Link
                 href={ctaHref}
                 className={cn(
                   buttonVariants(),
@@ -166,16 +155,6 @@ export function SiteHeader({
               />
             ) : (
               <>
-                <Link
-                  href="/sign-in"
-                  className={cn(
-                    buttonVariants({ variant: 'outline' }),
-                    'rounded-full px-4'
-                  )}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {m['common.nav.sign_in']()}
-                </Link>
                 <Link
                   href={ctaHref}
                   className={cn(buttonVariants(), 'gap-1.5 rounded-full px-4')}

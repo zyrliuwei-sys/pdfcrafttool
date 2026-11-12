@@ -14,12 +14,14 @@ export function pageHead({
   description,
   path,
   locale,
+  availableLocales = locales,
 }: {
   title: string;
   description: string;
   /** Locale-free path, e.g. "/download" ("/" for home). */
   path: string;
   locale: string;
+  availableLocales?: readonly (typeof locales)[number][];
 }) {
   const urlFor = (loc: string) =>
     localizeUrl(`${envConfigs.app_url}${path}`, {
@@ -45,7 +47,7 @@ export function pageHead({
     ],
     links: [
       { rel: 'canonical', href: urlFor(locale) },
-      ...locales.map((loc) => ({
+      ...availableLocales.map((loc) => ({
         rel: 'alternate',
         hrefLang: loc,
         href: urlFor(loc),

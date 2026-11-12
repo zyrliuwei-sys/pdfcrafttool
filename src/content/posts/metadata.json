@@ -62,5 +62,32 @@
     "image": "/imgs/pdfcraft/dark-1600.webp",
     "image_alt": "PdfCraft 项目深色主题展示，包含 PDF 页面与评论面板",
     "image_caption": "各平台共享主要文档工作流，展示图的窗口外观可能与实际 Linux 桌面不同。"
+  },
+  "pdfcraft-ocr-scanned-pdf.en": {
+    "title": "OCR a Scanned PDF with PdfCraft: A Tested Text Extraction Workflow",
+    "description": "Turn an image-only PDF into searchable text. A PdfCraft v0.21.1 CLI test with Tesseract, a missing-model fix, downloadable samples and checks after saving.",
+    "created_at": "2026-11-12",
+    "author_name": "PDFCraftTool.org",
+    "image": "/imgs/reviews/scan-source.png",
+    "image_alt": "Synthetic English scan used in our PdfCraft OCR test",
+    "image_caption": "Our image-only input, rendered from the original PDF. The sample contains fictional values and had no extractable text before recognition."
+  },
+  "pdfcraft-fill-sign-pdf-test.en": {
+    "title": "Fill and Sign a PDF with PdfCraft: What Survived Our Save Test",
+    "description": "A reproducible PdfCraft v0.21.1 test of form values, checkbox state and a visible signature, with saved files and an independent reopen check.",
+    "created_at": "2026-11-12",
+    "author_name": "PDFCraftTool.org",
+    "image": "/imgs/reviews/form-blank.png",
+    "image_alt": "Blank synthetic PDF with text fields, a checkbox and space for a signature",
+    "image_caption": "The blank test form before filling. All input and output files in this guide use fictional data."
+  },
+  "pdfcraft-pdf-to-word-layout.en": {
+    "title": "PdfCraft PDF to Word Test: Where the Layout Changed",
+    "description": "Compare a source PDF and PdfCraft v0.21.1 DOCX export: text columns, table widths, missing chart bars and a title that failed to appear in LibreOffice.",
+    "created_at": "2026-11-12",
+    "author_name": "PDFCraftTool.org",
+    "image": "/imgs/reviews/layout-source.png",
+    "image_alt": "Source report with two columns, a budget table and colored vector chart bars",
+    "image_caption": "The source PDF for our export test. The article compares this original with the unedited DOCX rendered in LibreOffice."
   }
 }

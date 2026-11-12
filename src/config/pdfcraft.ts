@@ -1,9 +1,8 @@
-// Facts about the upstream PdfCraft project (github.com/storytold/pdfcraft).
-// Bump PDFCRAFT_VERSION + sizes when a new release ships — every download
-// link on the site is derived from here.
+import release from './pdfcraft-release.json';
 
-export const PDFCRAFT_VERSION = '0.8.0';
-export const PDFCRAFT_RELEASE_DATE = '2026-10-14';
+// Refreshed from the official GitHub release at build time.
+export const PDFCRAFT_VERSION = release.version;
+export const PDFCRAFT_RELEASE_DATE = release.publishedAt.slice(0, 10);
 
 export const PDFCRAFT_REPO = 'https://github.com/storytold/pdfcraft';
 export const PDFCRAFT_RELEASES = `${PDFCRAFT_REPO}/releases`;
@@ -23,8 +22,12 @@ export const FOXIT_EDITOR = 'https://www.foxit.com/pdf-editor/';
 export const PDFSAM = 'https://pdfsam.org';
 export const OKULAR = 'https://okular.kde.org';
 
-const releaseFile = (file: string) =>
-  `${PDFCRAFT_RELEASES}/download/v${PDFCRAFT_VERSION}/${file}`;
+const releaseFile = (file: string) => {
+  const entry = release.assets.find((item) => item.name === file);
+  if (!entry)
+    throw new Error(`Missing official PdfCraft release asset: ${file}`);
+  return entry.url;
+};
 
 export const PDFCRAFT_CHECKSUMS = releaseFile('SHA256SUMS.txt');
 
@@ -43,77 +46,74 @@ export interface DownloadAsset {
 const asset = (
   label: string,
   file: string,
-  sizeMb: number,
   recommended?: boolean
-): DownloadAsset => ({
-  label,
-  file,
-  url: releaseFile(file),
-  sizeMb,
-  recommended,
-});
+): DownloadAsset[] => {
+  const entry = release.assets.find((item) => item.name === file);
+  return entry
+    ? [
+        {
+          label,
+          file,
+          url: entry.url,
+          sizeMb: Math.round(entry.size / 1_000_000),
+          recommended,
+        },
+      ]
+    : [];
+};
 
 const v = PDFCRAFT_VERSION;
 
 export const DOWNLOADS: Record<PlatformId, DownloadAsset[]> = {
   macos: [
-    asset(
+    ...asset(
       'Universal .dmg for Apple silicon and Intel',
       `pdfcraft-${v}-macos-universal.dmg`,
-      94,
       true
     ),
-    asset(
+    ...asset(
       'Command-line tool (.zip)',
-      `pdfcraft-cli-${v}-macos-universal.zip`,
-      61
+      `pdfcraft-cli-${v}-macos-universal.zip`
     ),
   ],
   windows: [
-    asset('x64 installer (.msi)', `pdfcraft-${v}-windows-x64.msi`, 71, true),
-    asset('x64 portable (.zip)', `pdfcraft-${v}-windows-x64-portable.zip`, 85),
-    asset('ARM64 installer (.msi)', `pdfcraft-${v}-windows-arm64.msi`, 67),
-    asset(
+    ...asset('x64 installer (.msi)', `pdfcraft-${v}-windows-x64.msi`, true),
+    ...asset('x64 portable (.zip)', `pdfcraft-${v}-windows-x64-portable.zip`),
+    ...asset('ARM64 installer (.msi)', `pdfcraft-${v}-windows-arm64.msi`),
+    ...asset(
       'ARM64 portable (.zip)',
-      `pdfcraft-${v}-windows-arm64-portable.zip`,
-      82
+      `pdfcraft-${v}-windows-arm64-portable.zip`
     ),
-    asset('x86 32-bit installer (.msi)', `pdfcraft-${v}-windows-x86.msi`, 69),
-    asset(
+    ...asset('x86 32-bit installer (.msi)', `pdfcraft-${v}-windows-x86.msi`),
+    ...asset(
       'x86 32-bit portable (.zip)',
-      `pdfcraft-${v}-windows-x86-portable.zip`,
-      82
+      `pdfcraft-${v}-windows-x86-portable.zip`
     ),
   ],
   linux: [
-    asset('x86_64 AppImage', `pdfcraft-${v}-linux-x86_64.AppImage`, 81, true),
-    asset('x86_64 Flatpak', `pdfcraft-${v}-linux-x86_64.flatpak`, 64),
-    asset('x86_64 .deb (Debian/Ubuntu)', `pdfcraft-${v}-linux-x86_64.deb`, 86),
-    asset(
-      'x86_64 .rpm (Fedora/openSUSE)',
-      `pdfcraft-${v}-linux-x86_64.rpm`,
-      86
-    ),
-    asset('x86_64 tarball', `pdfcraft-${v}-linux-x86_64.tar.gz`, 85),
-    asset('ARM64 AppImage', `pdfcraft-${v}-linux-aarch64.AppImage`, 78),
-    asset('ARM64 Flatpak', `pdfcraft-${v}-linux-aarch64.flatpak`, 61),
-    asset('ARM64 .deb', `pdfcraft-${v}-linux-aarch64.deb`, 83),
-    asset('ARM64 .rpm', `pdfcraft-${v}-linux-aarch64.rpm`, 83),
-    asset('ARM64 tarball', `pdfcraft-${v}-linux-aarch64.tar.gz`, 81),
-    asset('RISC-V 64 .deb', `pdfcraft-${v}-linux-riscv64.deb`, 84),
-    asset('RISC-V 64 .rpm', `pdfcraft-${v}-linux-riscv64.rpm`, 83),
-    asset('RISC-V 64 tarball', `pdfcraft-${v}-linux-riscv64.tar.gz`, 83),
-    asset('CLI x86_64 (.tar.gz)', `pdfcraft-cli-${v}-linux-x86_64.tar.gz`, 30),
-    asset('CLI ARM64 (.tar.gz)', `pdfcraft-cli-${v}-linux-aarch64.tar.gz`, 29),
+    ...asset('x86_64 AppImage', `pdfcraft-${v}-linux-x86_64.AppImage`, true),
+    ...asset('x86_64 Flatpak', `pdfcraft-${v}-linux-x86_64.flatpak`),
+    ...asset('x86_64 .deb (Debian/Ubuntu)', `pdfcraft-${v}-linux-x86_64.deb`),
+    ...asset('x86_64 .rpm (Fedora/openSUSE)', `pdfcraft-${v}-linux-x86_64.rpm`),
+    ...asset('x86_64 tarball', `pdfcraft-${v}-linux-x86_64.tar.gz`),
+    ...asset('ARM64 AppImage', `pdfcraft-${v}-linux-aarch64.AppImage`),
+    ...asset('ARM64 Flatpak', `pdfcraft-${v}-linux-aarch64.flatpak`),
+    ...asset('ARM64 .deb', `pdfcraft-${v}-linux-aarch64.deb`),
+    ...asset('ARM64 .rpm', `pdfcraft-${v}-linux-aarch64.rpm`),
+    ...asset('ARM64 tarball', `pdfcraft-${v}-linux-aarch64.tar.gz`),
+    ...asset('RISC-V 64 .deb', `pdfcraft-${v}-linux-riscv64.deb`),
+    ...asset('RISC-V 64 .rpm', `pdfcraft-${v}-linux-riscv64.rpm`),
+    ...asset('RISC-V 64 tarball', `pdfcraft-${v}-linux-riscv64.tar.gz`),
+    ...asset('CLI x86_64 (.tar.gz)', `pdfcraft-cli-${v}-linux-x86_64.tar.gz`),
+    ...asset('CLI ARM64 (.tar.gz)', `pdfcraft-cli-${v}-linux-aarch64.tar.gz`),
   ],
   freebsd: [
-    asset('x86_64 tarball', `pdfcraft-${v}-freebsd-x86_64.tar.gz`, 84, true),
+    ...asset('x86_64 tarball', `pdfcraft-${v}-freebsd-x86_64.tar.gz`, true),
   ],
   web: [
-    asset(
+    ...asset(
       'Static web build (WebAssembly .zip)',
       `pdfcraft-web-${v}.zip`,
-      14,
       true
     ),
   ],

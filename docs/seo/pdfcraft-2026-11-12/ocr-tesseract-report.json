@@ -1,0 +1,78 @@
+{
+  "ok": true,
+  "steps": [
+    {
+      "result": [
+        {
+          "dirty": false,
+          "doc": 1,
+          "editable": true,
+          "encrypted": false,
+          "name": "scan-image-only.pdf",
+          "pages": 1,
+          "path": "scan-image-only.pdf",
+          "read_only_reason": null,
+          "redo": null,
+          "undo": null
+        }
+      ],
+      "status": "ok",
+      "step": 1,
+      "tool": "doc_open"
+    },
+    {
+      "result": [
+        {
+          "pages": [
+            {
+              "already_on_page": 0,
+              "page": 1,
+              "text": "SCAN TO TEXT TEST Reference: SCAN-108B Invoice date: 12 November 2026 Item: Paper folders Quantity: 12 Unit price: 4.50 USD Total due: 54.00 USD Please retain this page for your records. Synthetic sample - PDFCraftTool.org - 12 November 2026",
+              "words": 39
+            }
+          ],
+          "words": 39
+        }
+      ],
+      "status": "ok",
+      "step": 2,
+      "tool": "ocr_recognize"
+    },
+    {
+      "result": [
+        {
+          "bytes": 88332,
+          "document": {
+            "dirty": false,
+            "doc": 1,
+            "editable": true,
+            "encrypted": false,
+            "name": "scan-searchable.pdf",
+            "pages": 1,
+            "path": "scan-searchable.pdf",
+            "read_only_reason": null,
+            "redo": null,
+            "undo": "Recognize text"
+          },
+          "incremental": false,
+          "path": "scan-searchable.pdf"
+        }
+      ],
+      "status": "ok",
+      "step": 3,
+      "tool": "doc_save"
+    },
+    {
+      "result": [
+        {
+          "bytes": 242,
+          "pages": 1,
+          "path": "scan-text.txt"
+        }
+      ],
+      "status": "ok",
+      "step": 4,
+      "tool": "doc_export_text"
+    }
+  ]
+}
