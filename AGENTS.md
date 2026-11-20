@@ -2,6 +2,11 @@
 
 This is a **headless SaaS engine** — pre-wired business logic (payments, credits, subscriptions, auth, RBAC) with minimal UI. Users build their product pages on top of it.
 
+## Git Workflow
+
+Work directly on `main` in the main worktree. Do not create branches or linked
+worktrees unless the user explicitly requests one.
+
 ## Tech Stack
 
 - **Framework:** TanStack Start (RC, Vite 8 + nitro, React 19, TypeScript strict). File-based routing under `src/routes/`. No React Server Components, no `"use client"` directives — all components are regular React; loaders and server functions handle server-side work.
