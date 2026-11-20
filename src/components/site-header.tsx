@@ -23,10 +23,13 @@ const isExternalHref = (href: string) => /^https?:\/\//.test(href);
 export function SiteHeader({
   navLinks,
   logoAlt,
+  signIn,
   cta,
 }: {
   navLinks?: NavLink[];
   logoAlt: string;
+  /** Optional protected destination; its auth guard preserves the login callback. */
+  signIn?: { href: string; label: string };
   /** Primary button for signed-out visitors (defaults to "Get started" → /settings). */
   cta?: { href: string; label: string };
 }) {
@@ -54,7 +57,7 @@ export function SiteHeader({
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {navLinks?.map((link) =>
             isExternalHref(link.href) ? (
               <a
@@ -80,7 +83,7 @@ export function SiteHeader({
         </nav>
 
         {/* Desktop actions */}
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <ThemeToggle />
           {user ? (
             <SiteUserMenu
@@ -90,6 +93,17 @@ export function SiteHeader({
             />
           ) : (
             <>
+              {signIn && (
+                <Link
+                  href={signIn.href}
+                  className={cn(
+                    buttonVariants({ variant: 'outline' }),
+                    'h-9 rounded-full px-4'
+                  )}
+                >
+                  {signIn.label}
+                </Link>
+              )}
               <Link
                 href={ctaHref}
                 className={cn(
@@ -106,7 +120,7 @@ export function SiteHeader({
 
         {/* Mobile toggle */}
         <button
-          className="p-2 md:hidden"
+          className="p-2 lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
@@ -117,7 +131,7 @@ export function SiteHeader({
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-border border-t px-4 pt-2 pb-4 md:hidden">
+        <div className="border-border border-t px-4 pt-2 pb-4 lg:hidden">
           <nav className="flex flex-col gap-2">
             {navLinks?.map((link) =>
               isExternalHref(link.href) ? (
@@ -155,6 +169,18 @@ export function SiteHeader({
               />
             ) : (
               <>
+                {signIn && (
+                  <Link
+                    href={signIn.href}
+                    className={cn(
+                      buttonVariants({ variant: 'outline' }),
+                      'rounded-full px-4'
+                    )}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {signIn.label}
+                  </Link>
+                )}
                 <Link
                   href={ctaHref}
                   className={cn(buttonVariants(), 'gap-1.5 rounded-full px-4')}

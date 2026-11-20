@@ -13,6 +13,7 @@ export function Header() {
     <SiteHeader
       navLinks={navLinks}
       logoAlt={m['pc.logo_alt']()}
+      signIn={{ href: '/admin', label: m['common.nav.sign_in']() }}
       cta={{ href: '/download', label: m['pc.nav.cta']() }}
     />
   );
